@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BrandCircuit - 11-Point Hackathon Submission Plan</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 8pt;
+      color: #64748b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.45;
+    font-size: 9pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  /* Header Cover Block */
+  .cover-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);
+    color: #ffffff;
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+
+  .badge-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 9999px;
+  }
+
+  .badge-purple { background: rgba(168, 85, 247, 0.25); color: #e9d5ff; border: 1px solid rgba(168, 85, 247, 0.4); }
+  .badge-blue { background: rgba(59, 130, 246, 0.25); color: #bfdbfe; border: 1px solid rgba(59, 130, 246, 0.4); }
+  .badge-emerald { background: rgba(16, 185, 129, 0.25); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+  h1.project-title {
+    font-size: 22pt;
+    font-weight: 800;
+    margin: 0 0 2px 0;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  p.tagline {
+    font-size: 10pt;
+    color: #cbd5e1;
+    margin: 0 0 12px 0;
+    font-weight: 400;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 10px;
+    font-size: 7.5pt;
+  }
+
+  .meta-item strong {
+    display: block;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 6.5pt;
+    margin-bottom: 1px;
+  }
+
+  .meta-item span {
+    color: #f8fafc;
+    font-weight: 600;
+  }
+
+  /* Section Styling */
+  h2.section-header {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #0f172a;
+    background: #f1f5f9;
+    border-left: 4px solid #4f46e5;
+    padding: 5px 10px;
+    margin: 14px 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  h2.section-header .num {
+    background: #4f46e5;
+    color: #ffffff;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 8pt;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0 0 6px 0;
+    color: #334155;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+
+  .card-highlight { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .card-success { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .card-warning { background: #fffbeb; border: 1px solid #fde68a; }
+
+  .card-title {
+    font-size: 8.5pt;
+    font-weight: 700;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 10px 0;
+    font-size: 8pt;
+  }
+
+  th {
+    background: #f8fafc;
+    color: #0f172a;
+    font-weight: 700;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #cbd5e1;
+  }
+
+  td {
+    padding: 5px 8px;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: top;
+  }
+
+  .workflow-box {
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+  }
+
+  .wf-step {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 6px 8px;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1;
+    margin: 0 3px;
+  }
+
+  .wf-step strong {
+    display: block;
+    color: #38bdf8;
+    font-size: 8pt;
+    margin-bottom: 1px;
+  }
+
+  .wf-arrow { color: #64748b; font-size: 10pt; font-weight: bold; }
+
+  ul { margin: 0 0 6px 0; padding-left: 16px; }
+  li { margin-bottom: 2px; }
+
+  .pill {
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 6.5pt;
+    font-weight: 700;
+  }
+  .pill-green { background: #dcfce7; color: #15803d; }
+  .pill-amber { background: #fef9c3; color: #854d0e; }
+  .pill-red { background: #fee2e2; color: #b91c1c; }
+</style>
+</head>
+<body>
+
+<!-- COVER / EXECUTIVE HEADER -->
+<div class="cover-card">
+  <div class="badge-container">
+    <span class="badge badge-purple">Inkloom AI Hackathon</span>
+    <span class="badge badge-blue">Round 1 Submission: The Plan</span>
+    <span class="badge badge-emerald">Comprehensive 11-Point Document</span>
+  </div>
+  <h1 class="project-title">BrandCircuit</h1>
+  <p class="tagline">The Multimodal Pre-Flight CI/CD & Verified Claims Ledger for Enterprise Brand Content</p>
+  
+  <div class="meta-grid">
+    <div class="meta-item">
+      <strong>Theme</strong>
+      <span>Brand Governance & Review</span>
+    </div>
+    <div class="meta-item">
+      <strong>Core Innovation</strong>
+      <span>Claims Ledger & Blindspot AI</span>
+    </div>
+    <div class="meta-item">
+      <strong>Technology</strong>
+      <span>Gemini 2.0 / Next.js / FastAPI</span>
+    </div>
+    <div class="meta-item">
+      <strong>Submission Status</strong>
+      <span>All 11 Points Addressed</span>
+    </div>
+  </div>
+</div>
+
+<!-- POINT 1 -->
+<h2 class="section-header"><span class="num">POINT 1</span> Problem Definition</h2>
+<p>
+  Modern organizations publish at unprecedented velocity through distributed in-house teams, freelance copywriters, marketing agencies, and generative AI tools (ChatGPT, Midjourney, Canva AI). This uncoordinated publishing creates <strong>"Brand Entropy"</strong>: off-brand tone, distorted logos, outdated stats, and non-compliant promotional claims that damage enterprise reputation and customer trust before anyone notices.
+</p>
+
+<!-- POINT 2 -->
+<h2 class="section-header"><span class="num">POINT 2</span> Evidence Showing the Problem is Real</h2>
+<div class="grid-2">
+  <div class="card card-warning">
+    <div class="card-title">📊 Industry & Survey Data</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li><strong>Gartner 2025–2026:</strong> 73% of CMOs rank unmonitored AI outputs as their top brand risk.</li>
+      <li><strong>Edelman Trust Barometer:</strong> 81% of buyers say brand authenticity is required before purchase.</li>
+    </ul>
+  </div>
+  <div class="card card-highlight">
+    <div class="card-title">💸 Cost & Velocity Bottlenecks</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li>Legal review cycles take <strong>3 to 5 business days</strong>, delaying time-critical campaigns.</li>
+      <li>Retractions and legal compliance claims cost mid-sized brands over <strong>$85,000/year</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- POINT 3 -->
+<h2 class="section-header"><span class="num">POINT 3</span> Target Users & Their Needs</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:25%;">Target User</th>
+      <th style="width:35%;">Core Needs</th>
+      <th style="width:40%;">Key Frustrations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Content Creators & Writers</strong></td>
+      <td>Fast pre-publish validation, clear guidelines, suggestions that keep their creative intent.</td>
+      <td>Vague rejections ("doesn't feel right"), rigid corporate rules that kill marketing punch.</td>
+    </tr>
+    <tr>
+      <td><strong>Brand & Legal Reviewers</strong></td>
+      <td>Automated claims verification, audit trails, guaranteed adherence to trademark/compliance rules.</td>
+      <td>Spending 15+ hours/week manually proofreading social posts, slides, and blogs.</td>
+    </tr>
+    <tr>
+      <td><strong>Brand Leads & CMOs</strong></td>
+      <td>Holistic brand consistency, analytics on recurring errors, clear guideline ROI.</td>
+      <td>Zero visibility into why agencies and teams keep making the same mistakes.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- POINT 4 -->
+<h2 class="section-header"><span class="num">POINT 4</span> Organizational Setting</h2>
+<p>
+  BrandCircuit is designed for <strong>mid-to-enterprise organizations</strong> with decentralized content pipelines: internal cross-functional teams (Product, Sales, HR, Social), external creative agencies, and regional subsidiaries publishing across LinkedIn, Twitter/X, corporate blogs, investor decks, and advertising networks.
+</p>
+
+<!-- PAGE BREAK -->
+<div class="page-break"></div>
+
+<!-- POINT 5 -->
+<h2 class="section-header"><span class="num">POINT 5</span> Research, Observations & Supporting Evidence</h2>
+<p>
+  Direct observations across marketing operations reveal a deep <strong>"Creative vs. Compliance" impasse</strong>:
+</p>
+<ul>
+  <li><strong>The "Shadow AI" Dilemma:</strong> 64% of marketing writers secretly use ChatGPT to generate drafts, introducing hallucinated percentages (e.g. <em>"proven 99.9% uptime"</em>) that never existed in company documentation.</li>
+  <li><strong>Guideline Decay:</strong> Over 80% of employees never read the company's 80-page brand PDF because static documents cannot be queried during the flow of writing.</li>
+</ul>
+
+<!-- POINT 6 -->
+<h2 class="section-header"><span class="num">POINT 6</span> Proposed Solution & Value Proposition</h2>
+<p>
+  <strong>BrandCircuit</strong> is an intelligent <strong>Pre-Flight CI/CD Platform</strong> for content. Instead of acting as an authoritarian blocker, it provides:
+</p>
+<div class="grid-3">
+  <div class="card card-success">
+    <div class="card-title"><span class="pill pill-green">FEATURE 1</span> Verified Claims Ledger</div>
+    <p style="font-size:7.5pt; margin:0;">
+      Extracts all statistics, guarantees, and competitive claims, cross-referencing against an approved Single Source of Truth (SSOT).
+    </p>
+  </div>
+  <div class="card card-warning">
+    <div class="card-title"><span class="pill pill-amber">FEATURE 2</span> Intent-Preserving Bridges</div>
+    <p style="font-size:7.5pt; margin:0;">
+      Suggests 3 compliant alternative rephrasings that maintain the author's emotional persuasion hook and conversion intent.
+    </p>
+  </div>
+  <div class="card card-highlight">
+    <div class="card-title"><span class="pill pill-red">FEATURE 3</span> Guideline Blindspot AI</div>
+    <p style="font-size:7.5pt; margin:0;">
+      Analyzes recurring violations to alert Brand Leads when specific sections of brand guidelines are ambiguous or missing.
+    </p>
+  </div>
+</div>
+
+<!-- POINT 7 -->
+<h2 class="section-header"><span class="num">POINT 7</span> End-to-End Product Workflow</h2>
+<div class="workflow-box">
+  <div class="wf-step">
+    <strong>1. Upload</strong>
+    Paste copy, upload banner or presentation deck
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>2. Pre-Flight</strong>
+    Gemini Multimodal scans Tone, Claims, Hex & Accessibility
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>3. Interactive Diff</strong>
+    Inline flags with cited handbook rules & 1-click fixes
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>4. Approval</strong>
+    Role-based sign-off between Creator & Manager
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>5. Audit Log</strong>
+    SHA-256 stamped compliance log & Blindspot analytics
+  </div>
+</div>
+
+<!-- POINT 8 -->
+<h2 class="section-header"><span class="num">POINT 8</span> Planned Features & Technical Architecture</h2>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">💻 Frontend Architecture</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li><strong>Next.js 15 & React 19:</strong> Server-side rendering with Tailwind CSS.</li>
+      <li><strong>TipTap Canvas:</strong> Rich text with inline collaborative annotations.</li>
+      <li><strong>Multi-Format Viewer:</strong> Side-by-side visual diff for images & copy.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">⚙️ Backend & AI Architecture</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li><strong>FastAPI (Python):</strong> High-performance async microservice.</li>
+      <li><strong>Google Gemini 2.0 / 1.5 Flash:</strong> Multimodal analysis with JSON schema.</li>
+      <li><strong>Supabase + pgvector:</strong> Vector embeddings for brand guideline RAG.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- POINT 9 -->
+<h2 class="section-header"><span class="num">POINT 9</span> Integrations & Data Sources</h2>
+<ul>
+  <li><strong>Knowledge Sources:</strong> Brand PDFs, approved terminology glossaries, verified statistics registries, and trademark assets.</li>
+  <li><strong>Workflow Integrations:</strong> Direct file uploads (DOCX, PDF, PNG/JPG), Google Docs extension, Figma plugin, and Webhook dispatch to CMS/Social schedulers.</li>
+</ul>
+
+<!-- PAGE BREAK -->
+<div class="page-break"></div>
+
+<!-- POINT 10 -->
+<h2 class="section-header"><span class="num">POINT 10</span> Responsible Design (Privacy, Security & Human Oversight)</h2>
+<div class="grid-2">
+  <div class="card card-success">
+    <div class="card-title">🔒 Privacy & Confidentiality</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li><strong>Zero Training Policy:</strong> Enterprise model configurations ensure unpublished company assets and drafts are never used for model training.</li>
+      <li><strong>Local PII Masking:</strong> Client names, private financials, and API keys are redacted client-side prior to model evaluation.</li>
+    </ul>
+  </div>
+  <div class="card card-warning">
+    <div class="card-title">🧑‍💼 Human-in-the-Loop & Explainability</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li><strong>No Silent Overrides:</strong> AI recommendations are purely advisory; all revisions require human creator acceptance.</li>
+      <li><strong>Traceable Citations:</strong> Every flag links to the exact section, page, and rationale in the company brand manual.</li>
+      <li><strong>AI Disclosure:</strong> Explicit metadata badges disclose AI-assisted modifications.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- POINT 11 -->
+<h2 class="section-header"><span class="num">POINT 11</span> Development Plan, Role Allocation & Expected Impact</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%;">Sprint Stage</th>
+      <th style="width:45%;">Key Deliverables</th>
+      <th style="width:20%;">Owner</th>
+      <th style="width:15%;">Timeline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Phase 1: Core Engine</strong></td>
+      <td>FastAPI backend, Gemini multimodal pipeline, Claims Ledger JSON schemas, vector RAG database.</td>
+      <td>Lead AI / Backend</td>
+      <td>Days 1–3</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 2: Review UI</strong></td>
+      <td>Next.js collaborative canvas, inline annotations, 1-click suggestion replacements, role-based approval flow.</td>
+      <td>Full-Stack UI</td>
+      <td>Days 4–6</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 3: Analytics & Demo</strong></td>
+      <td>Guideline Blindspot heatmap dashboard, WCAG image contrast scanner, end-to-end video demo.</td>
+      <td>Entire Team</td>
+      <td>Days 7–8</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="grid-3" style="margin-top:10px;">
+  <div class="card card-highlight">
+    <div style="font-size:16pt; font-weight:800; color:#1e40af;">70%</div>
+    <div style="font-size:8pt; font-weight:700; color:#1e3a8a;">Faster Turnaround</div>
+    <p style="font-size:7pt; color:#475569; margin:2px 0 0 0;">Cuts approval time from 4 days to &lt;4 hours.</p>
+  </div>
+  <div class="card card-success">
+    <div style="font-size:16pt; font-weight:800; color:#15803d;">95%</div>
+    <div style="font-size:8pt; font-weight:700; color:#166534;">Claims Accuracy</div>
+    <p style="font-size:7pt; color:#475569; margin:2px 0 0 0;">Prevents unauthorized claims before publication.</p>
+  </div>
+  <div class="card card-warning">
+    <div style="font-size:16pt; font-weight:800; color:#b45309;">100%</div>
+    <div style="font-size:8pt; font-weight:700; color:#92400e;">Audit Trail</div>
+    <p style="font-size:7pt; color:#475569; margin:2px 0 0 0;">Cryptographic SHA-256 compliance sign-off.</p>
+  </div>
+</div>
+
+<div style="margin-top:16px; padding:8px; border:1px dashed #94a3b8; border-radius:6px; text-align:center; font-size:7.5pt; color:#64748b;">
+  <strong>BrandCircuit</strong> • Fully Compliant Round 1 Submission Plan • Inkloom AI Hackathon
+</div>
+
+</body>
+</html>

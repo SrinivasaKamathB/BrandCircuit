@@ -1,0 +1,19 @@
+{
+  "name": "brandcircuit",
+  "version": "2.0.0",
+  "description": "Multimodal Pre-Flight CI/CD & Claims Ledger for Enterprise Brand Content",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "brand-governance",
+    "hackathon",
+    "gemini",
+    "compliance",
+    "ai"
+  ],
+  "author": "BrandCircuit Team",
+  "license": "MIT"
+}

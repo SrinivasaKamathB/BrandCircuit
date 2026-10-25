@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrandCircuit — Multimodal Pre-Flight CI/CD & Claims Ledger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#1e1b4b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-6 py-3.5 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+        <i class="fa-solid fa-shield-halved text-white text-lg"></i>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">BrandCircuit</span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">v2.0 MVP</span>
+        </div>
+        <p class="text-[11px] text-slate-400">Pre-Flight Brand Governance & Claims Ledger</p>
+      </div>
+    </div>
+
+    <!-- ROLE SWITCHER & ACTION BUTTONS -->
+    <div class="flex items-center space-x-3">
+      <div class="flex items-center bg-slate-800 p-1 rounded-lg border border-slate-700 text-xs">
+        <button id="btn-role-creator" onclick="switchRole('creator')" class="px-3 py-1 rounded-md font-medium transition bg-indigo-600 text-white shadow">
+          <i class="fa-solid fa-pen-nib mr-1"></i> Creator
+        </button>
+        <button id="btn-role-reviewer" onclick="switchRole('reviewer')" class="px-3 py-1 rounded-md font-medium transition text-slate-400 hover:text-white">
+          <i class="fa-solid fa-user-shield mr-1"></i> Reviewer
+        </button>
+      </div>
+
+      <button onclick="loadSampleCampaign()" class="text-xs bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1.5 rounded-lg font-medium transition flex items-center">
+        <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-amber-400"></i> Load Demo Campaign (Violations)
+      </button>
+
+      <a href="/BrandCircuit_Hackathon_Plan.pdf" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-3 py-1.5 rounded-lg font-medium transition flex items-center">
+        <i class="fa-solid fa-file-pdf mr-1.5 text-red-400"></i> View Plan PDF
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-6 py-6 space-y-6">
+
+    <!-- HERO METRICS STRIP -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl">
+          <i class="fa-solid fa-scale-balanced"></i>
+        </div>
+        <div>
+          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Brand Compliance</div>
+          <div id="metric-compliance" class="text-2xl font-bold text-slate-100">82%</div>
+          <div class="text-[11px] text-emerald-400 font-medium"><i class="fa-solid fa-arrow-trend-up"></i> +14% after pre-flight</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl">
+          <i class="fa-solid fa-clipboard-check"></i>
+        </div>
+        <div>
+          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Claims Verified</div>
+          <div id="metric-claims" class="text-2xl font-bold text-slate-100">14 / 16</div>
+          <div class="text-[11px] text-slate-400">Single Source of Truth</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 text-xl">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div>
+          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">PR Blast Radius</div>
+          <div id="metric-blast" class="text-2xl font-bold text-rose-400">High (78%)</div>
+          <div class="text-[11px] text-rose-400 font-medium">Unsubstantiated stats detected</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl">
+          <i class="fa-solid fa-certificate"></i>
+        </div>
+        <div>
+          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Brand Passport</div>
+          <div id="metric-passport-status" class="text-sm font-semibold text-amber-400 mt-1">Pending Certification</div>
+          <div class="text-[11px] text-slate-400">SHA-256 Verifiable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN TWO-COLUMN WORKBENCH -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- LEFT: CONTENT EDITOR & PRE-FLIGHT (7 COLS) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- EDITOR CARD -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-slate-950/40">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <h2 class="text-sm font-semibold text-slate-200">Pre-Flight Content Draft</h2>
+              <span class="text-xs text-slate-500">| LinkedIn / Ad Copy</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button onclick="clearEditor()" class="text-xs text-slate-400 hover:text-white px-2 py-1">Clear</button>
+              <button onclick="runPreFlightCheck()" id="btn-run-check" class="text-xs bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-3.5 py-1.5 rounded-lg shadow-lg shadow-indigo-600/30 transition flex items-center">
+                <i class="fa-solid fa-bolt mr-1.5"></i> Run Pre-Flight Check
+              </button>
+            </div>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1.5">Campaign Headline & Body Copy</label>
+              <textarea id="input-copy" rows="6" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-sm text-slate-200 focus:outline-none focus:border-indigo-500 transition leading-relaxed font-sans placeholder:text-slate-600" placeholder="Type or paste marketing copy, blog excerpt, or advertisement text..."></textarea>
+            </div>
+
+            <!-- MULTIMODAL BANNER DROPZONE -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="text-xs font-medium text-slate-400">Attached Marketing Banner / Visual Asset</label>
+                <span class="text-[11px] text-slate-500">Multimodal Vision Inspection</span>
+              </div>
+              
+              <div class="border-2 border-dashed border-slate-800 rounded-xl p-4 bg-slate-950/50 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-16 h-12 rounded bg-indigo-950/60 border border-indigo-700/50 flex items-center justify-center text-indigo-400">
+                    <i class="fa-solid fa-image text-xl"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs font-semibold text-slate-200" id="banner-name">demo_banner_q4_launch.png</div>
+                    <div class="text-[11px] text-slate-400">1200 x 628 • RGB • Primary Brand Asset</div>
+                  </div>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <button onclick="inspectBanner()" class="text-xs bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-indigo-500/30 px-3 py-1.5 rounded-lg transition font-medium">
+                    <i class="fa-solid fa-eye mr-1"></i> Inspect Visual DNA
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLAIMS LEDGER CARD -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-slate-950/40">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-list-check text-indigo-400 text-sm"></i>
+              <h2 class="text-sm font-semibold text-slate-200">Verified Claims Ledger (SSOT)</h2>
+            </div>
+            <span class="text-xs text-slate-400">Atomic claim verification</span>
+          </div>
+
+          <div class="p-5 space-y-3" id="claims-container">
+            <!-- CLAIM 1 -->
+            <div class="p-3.5 rounded-xl border border-rose-500/30 bg-rose-950/10 flex items-start justify-between">
+              <div class="space-y-1">
+                <div class="flex items-center space-x-2">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30">Disputed Claim</span>
+                  <span class="text-xs font-semibold text-slate-200">"100% money-back guarantee with zero risk"</span>
+                </div>
+                <p class="text-xs text-slate-400">Violates Legal Policy §4.1: Absolute guarantees prohibited without full disclaimer.</p>
+              </div>
+              <button onclick="openAgentDebate('guarantee')" class="text-xs text-indigo-400 hover:text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-1 rounded font-medium ml-3 whitespace-nowrap">
+                <i class="fa-solid fa-code-compare mr-1"></i> Resolve
+              </button>
+            </div>
+
+            <!-- CLAIM 2 -->
+            <div class="p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/10 flex items-start justify-between">
+              <div class="space-y-1">
+                <div class="flex items-center space-x-2">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">Needs Citation</span>
+                  <span class="text-xs font-semibold text-slate-200">"Accelerates marketing output by 10x"</span>
+                </div>
+                <p class="text-xs text-slate-400">Internal benchmark shows 4.5x - 7x. 10x claim lacks published case study.</p>
+              </div>
+              <button onclick="openAgentDebate('10x')" class="text-xs text-indigo-400 hover:text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-1 rounded font-medium ml-3 whitespace-nowrap">
+                <i class="fa-solid fa-code-compare mr-1"></i> Resolve
+              </button>
+            </div>
+
+            <!-- CLAIM 3 -->
+            <div class="p-3.5 rounded-xl border border-emerald-500/30 bg-emerald-950/10 flex items-start justify-between">
+              <div class="space-y-1">
+                <div class="flex items-center space-x-2">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Verified SSOT</span>
+                  <span class="text-xs font-semibold text-slate-200">"SOC-2 Type II Certified & GDPR Compliant"</span>
+                </div>
+                <p class="text-xs text-slate-400">Verified against Corporate Security Registry (Audit Cert #SC-2026-99).</p>
+              </div>
+              <span class="text-xs text-emerald-400 font-semibold px-2 py-1"><i class="fa-solid fa-check mr-1"></i> Approved</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: LIVE PR SIMULATOR & AGENT DEBATE (5 COLS) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- PR CRISIS & BLAST RADIUS SIMULATOR -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-rose-950/20">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-radiation text-rose-400 text-sm animate-pulse-subtle"></i>
+              <h2 class="text-sm font-semibold text-rose-200">PR Blast Radius & Crisis Simulator</h2>
+            </div>
+            <span class="text-[11px] font-mono text-rose-300 bg-rose-500/10 border border-rose-500/30 px-2 py-0.5 rounded">Risk: 87%</span>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate-400">Projected Regulatory Exposure:</span>
+                <span class="font-bold text-rose-400">$45,000 (FTC §5)</span>
+              </div>
+              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-rose-500 h-full w-[87%] rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- MOCK TWITTER CRISIS THREAD -->
+            <div class="border border-slate-800 rounded-xl bg-slate-950 p-4 space-y-3 font-sans">
+              <div class="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                <div class="flex items-center space-x-2">
+                  <i class="fa-brands fa-x-twitter text-slate-300"></i>
+                  <span class="text-xs font-semibold text-slate-300">Simulated Public Backlash</span>
+                </div>
+                <span class="text-[10px] text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded font-mono">Community Note Risk</span>
+              </div>
+
+              <!-- TWEET 1 -->
+              <div class="flex space-x-3 text-xs">
+                <div class="w-8 h-8 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center font-bold text-[11px]">JD</div>
+                <div class="space-y-1 flex-1">
+                  <div class="flex items-center space-x-1.5">
+                    <span class="font-bold text-slate-200">John Dough</span>
+                    <span class="text-slate-500">@tech_investor</span>
+                  </div>
+                  <p class="text-slate-300">"Wait, @Brand claims '100% risk free guarantee'? Check their Terms page, it clearly says non-refundable after 7 days lol. Bait & switch."</p>
+                  
+                  <!-- COMMUNITY NOTE -->
+                  <div class="bg-amber-950/30 border border-amber-500/30 rounded p-2 text-[11px] text-amber-200 space-y-1">
+                    <div class="font-semibold flex items-center"><i class="fa-solid fa-circle-info mr-1 text-amber-400"></i> Readers added context</div>
+                    <p class="text-slate-400 text-[10px]">Company legal disclaimer contradicts social ad promotional claims.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAVERICK VS GUARDIAN: AGENT NEGOTIATION DEBATE -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl" id="card-agent-debate">
+          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-indigo-950/20">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-comments text-indigo-400 text-sm"></i>
+              <h2 class="text-sm font-semibold text-indigo-200">Maverick vs. Guardian Debate</h2>
+            </div>
+            <span class="text-[11px] text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded">Multi-Agent Negotiation</span>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <!-- DEBATE CHAT -->
+            <div class="space-y-2.5 text-xs">
+              <div class="bg-indigo-950/40 border border-indigo-700/30 p-2.5 rounded-xl space-y-1">
+                <div class="font-bold text-indigo-400 flex items-center">
+                  <i class="fa-solid fa-fire mr-1.5"></i> The Maverick (Growth Marketer)
+                </div>
+                <p class="text-slate-300">"If we soften '100% risk-free', conversion rates will plummet by 35%. We need that bold hook!"</p>
+              </div>
+
+              <div class="bg-amber-950/40 border border-amber-700/30 p-2.5 rounded-xl space-y-1">
+                <div class="font-bold text-amber-400 flex items-center">
+                  <i class="fa-solid fa-gavel mr-1.5"></i> The Guardian (Compliance Counsel)
+                </div>
+                <p class="text-slate-300">"FTC policy mandates clear qualifications. We can use 'Industry-leading satisfaction policy' with zero liability."</p>
+              </div>
+            </div>
+
+            <!-- COMPROMISE SLIDER -->
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
+              <div class="flex justify-between text-xs font-medium">
+                <span class="text-amber-400">Strict Compliance</span>
+                <span class="text-indigo-400">Viral Growth Hook</span>
+              </div>
+              <input type="range" id="compromise-slider" min="1" max="3" value="2" oninput="updateCompromise(this.value)" class="w-full accent-indigo-500 cursor-pointer">
+              <div class="text-[11px] text-slate-400 text-center font-mono" id="compromise-label">Current: Balanced Golden Compromise</div>
+            </div>
+
+            <!-- SYNTHESIZED REWRITE -->
+            <div class="p-3.5 bg-emerald-950/20 border border-emerald-500/30 rounded-xl space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-400 flex items-center"><i class="fa-solid fa-wand-magic mr-1"></i> Golden Compromise Rewrite</span>
+                <button onclick="applyCompromise()" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-2.5 py-1 rounded transition shadow">
+                  Apply Fix
+                </button>
+              </div>
+              <p id="compromise-text" class="text-xs text-slate-200 leading-relaxed font-medium">
+                "Experience our enterprise-grade platform with complete confidence — backed by our 30-day satisfaction policy and SOC-2 verified security."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRYPTOGRAPHIC BRAND PASSPORT MINTING -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-slate-950/40">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-stamp text-cyan-400 text-sm"></i>
+              <h2 class="text-sm font-semibold text-slate-200">Verifiable Brand Passport</h2>
+            </div>
+            <span class="text-xs text-cyan-400 font-mono" id="passport-hash-short">SHA-256: Uncertified</span>
+          </div>
+
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-slate-400">
+              Approved content receives a tamper-proof cryptographic passport allowing automated publishing to CMS & social channels.
+            </p>
+
+            <div id="passport-box" class="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-2 font-mono text-xs">
+              <div class="flex justify-between text-slate-400 text-[11px]">
+                <span>Status:</span>
+                <span id="passport-status-badge" class="text-amber-400 font-bold">Awaiting Manager Sign-Off</span>
+              </div>
+              <div class="text-[10px] text-slate-500 break-all" id="passport-full-hash">
+                Hash: null
+              </div>
+            </div>
+
+            <button id="btn-certify" onclick="certifyAndStamp()" class="w-full text-xs bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-2 rounded-xl transition flex items-center justify-center space-x-1.5 shadow-lg shadow-cyan-600/20">
+              <i class="fa-solid fa-fingerprint"></i>
+              <span>Certify & Mint Cryptographic Passport</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- MODAL: VISUAL DNA INSPECTOR -->
+    <div id="modal-visual" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-compass-drafting text-indigo-400"></i>
+            <h3 class="font-bold text-base text-slate-100">Multimodal Visual DNA Inspector</h3>
+          </div>
+          <button onclick="closeModalVisual()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- CANVAS SIMULATOR -->
+        <div class="relative bg-slate-950 border border-slate-800 rounded-xl h-64 overflow-hidden flex items-center justify-center">
+          <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/40 via-purple-900/40 to-slate-950 flex items-center justify-center">
+            <!-- BANNER CONTENT MOCK -->
+            <div class="relative border-2 border-dashed border-emerald-400/80 p-6 rounded-lg text-center space-y-2">
+              <span class="absolute -top-3 left-3 bg-emerald-500 text-slate-950 font-mono text-[9px] font-bold px-1.5 rounded">Logo Exclusion Zone: OK</span>
+              <div class="text-xl font-black text-white tracking-wider">BRAND LOGO</div>
+              <p class="text-xs text-slate-300">Next Gen Cloud Governance Platform</p>
+            </div>
+          </div>
+
+          <!-- OVERLAY FLAGS -->
+          <div class="absolute top-3 right-3 bg-rose-500/90 text-white text-[10px] font-bold px-2 py-1 rounded shadow">
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Off-Spec Hex: #FF0055 (Tolerance > 8%)
+          </div>
+          <div class="absolute bottom-3 left-3 bg-emerald-500/90 text-slate-950 text-[10px] font-bold px-2 py-1 rounded shadow">
+            <i class="fa-solid fa-check mr-1"></i> WCAG AAA Contrast: 7.2:1
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
+            <div class="text-slate-400 text-[10px] uppercase font-bold">Color Drift</div>
+            <div class="text-amber-400 font-bold text-sm mt-0.5">ΔE = 4.2</div>
+            <div class="text-[10px] text-slate-500">Exceeds primary hex #4F46E5</div>
+          </div>
+          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
+            <div class="text-slate-400 text-[10px] uppercase font-bold">Logo Padding</div>
+            <div class="text-emerald-400 font-bold text-sm mt-0.5">32px (Pass)</div>
+            <div class="text-[10px] text-slate-500">2x 'X-height' clear-space</div>
+          </div>
+          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
+            <div class="text-slate-400 text-[10px] uppercase font-bold">Accessibility</div>
+            <div class="text-emerald-400 font-bold text-sm mt-0.5">WCAG AAA</div>
+            <div class="text-[10px] text-slate-500">Fully readable on mobile</div>
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button onclick="closeModalVisual()" class="text-xs bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-4 py-2 rounded-lg">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // PRESET DEMO SCENARIOS
+    const riskyCopy = `🚀 Unleash 10x marketing output with our revolutionary AI engine! We are the only platform offering a 100% money-back guarantee with zero risk. Don't let your obsolete competitors crush your market share — switch today. We are fully SOC-2 Type II certified.`;
+
+    const cleanCopy = `Scale your content velocity with BrandCircuit's enterprise brand governance platform. Backed by our 30-day customer satisfaction policy and verified SOC-2 Type II security. Join forward-thinking marketing teams maintaining consistent, trustworthy brand identity across all channels.`;
+
+    function loadSampleCampaign() {
+      document.getElementById('input-copy').value = riskyCopy;
+      document.getElementById('metric-compliance').innerText = '64%';
+      document.getElementById('metric-compliance').className = 'text-2xl font-bold text-rose-400';
+      document.getElementById('metric-blast').innerText = 'High (87%)';
+      document.getElementById('metric-blast').className = 'text-2xl font-bold text-rose-400';
+      document.getElementById('passport-status-badge').innerText = 'Blocked: Severe Policy Violations';
+      document.getElementById('passport-status-badge').className = 'text-rose-400 font-bold';
+      alert('Loaded Demo Campaign with intentional compliance violations!');
+    }
+
+    function clearEditor() {
+      document.getElementById('input-copy').value = '';
+    }
+
+    function runPreFlightCheck() {
+      const btn = document.getElementById('btn-run-check');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1.5"></i> Checking...';
+      
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-bolt mr-1.5"></i> Run Pre-Flight Check';
+        alert('Pre-Flight Check Complete!\n\n• 2 Policy Violations Detected\n• PR Blast Radius: 87%\n• 1 Verified SSOT Claim');
+      }, 600);
+    }
+
+    function openAgentDebate(claimType) {
+      document.getElementById('card-agent-debate').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('card-agent-debate').classList.add('ring-2', 'ring-indigo-500');
+      setTimeout(() => {
+        document.getElementById('card-agent-debate').classList.remove('ring-2', 'ring-indigo-500');
+      }, 1500);
+    }
+
+    function updateCompromise(val) {
+      const label = document.getElementById('compromise-label');
+      const text = document.getElementById('compromise-text');
+
+      if (val == 1) {
+        label.innerText = 'Current: Maximum Legal Protection (Strict)';
+        text.innerText = 'Our enterprise platform complies with SOC-2 security protocols and offers a standard 30-day limited warranty per Section 4 of our Terms.';
+      } else if (val == 2) {
+        label.innerText = 'Current: Balanced Golden Compromise';
+        text.innerText = 'Experience our enterprise-grade platform with complete confidence — backed by our 30-day satisfaction policy and SOC-2 verified security.';
+      } else {
+        label.innerText = 'Current: High Virality (Marketing Punch)';
+        text.innerText = 'Supercharge your team with proven enterprise performance. Try it completely worry-free with our 30-day satisfaction guarantee!';
+      }
+    }
+
+    function applyCompromise() {
+      const fixedText = document.getElementById('compromise-text').innerText;
+      document.getElementById('input-copy').value = fixedText;
+      document.getElementById('metric-compliance').innerText = '96%';
+      document.getElementById('metric-compliance').className = 'text-2xl font-bold text-emerald-400';
+      document.getElementById('metric-blast').innerText = 'Low (4%)';
+      document.getElementById('metric-blast').className = 'text-2xl font-bold text-emerald-400';
+      alert('Applied Golden Compromise rewrite to draft!');
+    }
+
+    function inspectBanner() {
+      document.getElementById('modal-visual').classList.remove('hidden');
+    }
+
+    function closeModalVisual() {
+      document.getElementById('modal-visual').classList.add('hidden');
+    }
+
+    function certifyAndStamp() {
+      const text = document.getElementById('input-copy').value;
+      if (!text || text.includes('100% money-back guarantee with zero risk')) {
+        alert('Cannot certify draft: Unresolved high-risk claims still present! Please resolve or apply Golden Compromise first.');
+        return;
+      }
+
+      // Generate SHA-256 hash simulation
+      const randomHash = '0x' + Array.from({length: 40}, () => Math.floor(Math.random()*16).toString(16)).join('');
+      document.getElementById('passport-hash-short').innerText = randomHash.substring(0, 14) + '...';
+      document.getElementById('passport-full-hash').innerText = 'Cryptographic Hash: ' + randomHash;
+      document.getElementById('passport-status-badge').innerText = 'VERIFIED & CERTIFIED FOR PUBLISHING';
+      document.getElementById('passport-status-badge').className = 'text-emerald-400 font-bold';
+      document.getElementById('metric-passport-status').innerText = 'Active (SHA-256 Certified)';
+      document.getElementById('metric-passport-status').className = 'text-sm font-semibold text-emerald-400 mt-1';
+      alert('Cryptographic Brand Passport Minted!\n\nContent is officially certified and signed with SHA-256 stamp for production publishing.');
+    }
+
+    function switchRole(role) {
+      const btnC = document.getElementById('btn-role-creator');
+      const btnR = document.getElementById('btn-role-reviewer');
+
+      if (role === 'creator') {
+        btnC.className = 'px-3 py-1 rounded-md font-medium transition bg-indigo-600 text-white shadow';
+        btnR.className = 'px-3 py-1 rounded-md font-medium transition text-slate-400 hover:text-white';
+      } else {
+        btnR.className = 'px-3 py-1 rounded-md font-medium transition bg-indigo-600 text-white shadow';
+        btnC.className = 'px-3 py-1 rounded-md font-medium transition text-slate-400 hover:text-white';
+        alert('Switched to Reviewer Mode: Manager sign-off queue and audit approval features enabled.');
+      }
+    }
+
+    // Initialize with sample
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('input-copy').value = riskyCopy;
+    });
+  </script>
+</body>
+</html>
