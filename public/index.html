@@ -12,13 +12,22 @@
       theme: {
         extend: {
           colors: {
+            midnight: {
+              950: '#070b14',
+              900: '#0b1120',
+              850: '#0f172a',
+              800: '#1e293b',
+              700: '#334155',
+            },
             brand: {
               50: '#eef2ff',
               100: '#e0e7ff',
+              400: '#818cf8',
               500: '#6366f1',
               600: '#4f46e5',
               700: '#4338ca',
-              900: '#1e1b4b',
+              violet: '#8b5cf6',
+              cyan: '#06b6d4',
             }
           }
         }
@@ -26,6 +35,20 @@
     }
   </script>
   <style>
+    body {
+      background-color: #070b14;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.10) 0px, transparent 50%);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(99, 102, 241, 0.35);
+    }
     @keyframes pulse-subtle {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.85; }
@@ -35,18 +58,18 @@
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-indigo-500 selection:text-white">
+<body class="bg-[#070b14] text-slate-100 min-h-screen font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
   <!-- TOP NAVIGATION BAR -->
-  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50 px-6 py-3.5 flex items-center justify-between">
+  <header class="border-b border-indigo-500/10 bg-[#070b14]/85 backdrop-blur-md sticky top-0 z-50 px-6 py-3.5 flex items-center justify-between">
     <div class="flex items-center space-x-3">
-      <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-        <i class="fa-solid fa-shield-halved text-white text-lg"></i>
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 ring-1 ring-white/20">
+        <i class="fa-solid fa-shield-halved text-white text-base"></i>
       </div>
       <div>
         <div class="flex items-center space-x-2">
-          <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">BrandCircuit</span>
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">v2.0 MVP</span>
+          <span class="font-black text-lg tracking-tight bg-gradient-to-r from-white via-indigo-100 to-violet-300 bg-clip-text text-transparent">BrandCircuit</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">v2.0 MVP</span>
         </div>
         <p class="text-[11px] text-slate-400">Pre-Flight Brand Governance & Claims Ledger</p>
       </div>
@@ -83,47 +106,47 @@
 
     <!-- HERO METRICS STRIP -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
-        <div class="w-12 h-12 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl">
+      <div class="glass-card rounded-2xl p-4 flex items-center space-x-4 shadow-xl shadow-black/40">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-indigo-400 text-xl">
           <i class="fa-solid fa-scale-balanced"></i>
         </div>
         <div>
-          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Brand Compliance</div>
-          <div id="metric-compliance" class="text-2xl font-bold text-slate-100">82%</div>
-          <div class="text-[11px] text-emerald-400 font-medium"><i class="fa-solid fa-arrow-trend-up"></i> +14% after pre-flight</div>
+          <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Brand Compliance</div>
+          <div id="metric-compliance" class="text-2xl font-black text-slate-100">82%</div>
+          <div class="text-[11px] text-emerald-400 font-semibold"><i class="fa-solid fa-arrow-trend-up"></i> +14% after pre-flight</div>
         </div>
       </div>
 
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
-        <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl">
+      <div class="glass-card rounded-2xl p-4 flex items-center space-x-4 shadow-xl shadow-black/40">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 text-xl">
           <i class="fa-solid fa-clipboard-check"></i>
         </div>
         <div>
-          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Claims Verified</div>
-          <div id="metric-claims" class="text-2xl font-bold text-slate-100">14 / 16</div>
-          <div class="text-[11px] text-slate-400">Single Source of Truth</div>
+          <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Claims Verified</div>
+          <div id="metric-claims" class="text-2xl font-black text-slate-100">14 / 16</div>
+          <div class="text-[11px] text-slate-400 font-medium">Single Source of Truth</div>
         </div>
       </div>
 
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
-        <div class="w-12 h-12 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 text-xl">
+      <div class="glass-card rounded-2xl p-4 flex items-center space-x-4 shadow-xl shadow-black/40">
+        <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/25 flex items-center justify-center text-rose-400 text-xl">
           <i class="fa-solid fa-triangle-exclamation"></i>
         </div>
         <div>
-          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">PR Blast Radius</div>
-          <div id="metric-blast" class="text-2xl font-bold text-rose-400">High (78%)</div>
-          <div class="text-[11px] text-rose-400 font-medium">Unsubstantiated stats detected</div>
+          <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">PR Blast Radius</div>
+          <div id="metric-blast" class="text-2xl font-black text-rose-400">High (87%)</div>
+          <div class="text-[11px] text-rose-400 font-medium">Policy violations detected</div>
         </div>
       </div>
 
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center space-x-4">
-        <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl">
+      <div class="glass-card rounded-2xl p-4 flex items-center space-x-4 shadow-xl shadow-black/40">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-cyan-400 text-xl">
           <i class="fa-solid fa-certificate"></i>
         </div>
         <div>
-          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Brand Passport</div>
-          <div id="metric-passport-status" class="text-sm font-semibold text-amber-400 mt-1">Pending Certification</div>
-          <div class="text-[11px] text-slate-400">SHA-256 Verifiable</div>
+          <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Brand Passport</div>
+          <div id="metric-passport-status" class="text-sm font-bold text-amber-400 mt-1">Pending Certification</div>
+          <div class="text-[11px] text-slate-400 font-medium">SHA-256 Verifiable</div>
         </div>
       </div>
     </div>
@@ -135,8 +158,8 @@
       <div class="lg:col-span-7 space-y-6">
 
         <!-- EDITOR CARD -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-slate-950/40">
+        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl">
+          <div class="border-b border-indigo-500/10 px-5 py-3.5 flex items-center justify-between bg-black/30">
             <div class="flex items-center space-x-2">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
               <h2 class="text-sm font-semibold text-slate-200">Pre-Flight Content Draft</h2>
@@ -193,8 +216,8 @@
         </div>
 
         <!-- CLAIMS LEDGER CARD -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-slate-950/40">
+        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl">
+          <div class="border-b border-indigo-500/10 px-5 py-3.5 flex items-center justify-between bg-black/30">
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-list-check text-indigo-400 text-sm"></i>
               <h2 class="text-sm font-semibold text-slate-200">Verified Claims Ledger (SSOT)</h2>
@@ -251,8 +274,8 @@
       <div class="lg:col-span-5 space-y-6">
 
         <!-- PR CRISIS & BLAST RADIUS SIMULATOR -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-rose-950/20">
+        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl">
+          <div class="border-b border-rose-500/15 px-5 py-3.5 flex items-center justify-between bg-rose-950/20">
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-radiation text-rose-400 text-sm animate-pulse-subtle"></i>
               <h2 class="text-sm font-semibold text-rose-200">PR Blast Radius & Crisis Simulator</h2>
@@ -303,8 +326,8 @@
         </div>
 
         <!-- MAVERICK VS GUARDIAN: AGENT NEGOTIATION DEBATE -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl" id="card-agent-debate">
-          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-indigo-950/20">
+        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl" id="card-agent-debate">
+          <div class="border-b border-indigo-500/15 px-5 py-3.5 flex items-center justify-between bg-indigo-950/20">
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-comments text-indigo-400 text-sm"></i>
               <h2 class="text-sm font-semibold text-indigo-200">Maverick vs. Guardian Debate</h2>
@@ -364,8 +387,8 @@
         </div>
 
         <!-- CRYPTOGRAPHIC BRAND PASSPORT MINTING -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-          <div class="border-b border-slate-800 px-5 py-3.5 flex items-center justify-between bg-slate-950/40">
+        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl">
+          <div class="border-b border-cyan-500/15 px-5 py-3.5 flex items-center justify-between bg-black/30">
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-stamp text-cyan-400 text-sm"></i>
               <h2 class="text-sm font-semibold text-slate-200">Verifiable Brand Passport</h2>
