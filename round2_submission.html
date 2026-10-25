@@ -6,13 +6,7 @@
 <style>
   @page {
     size: A4;
-    margin: 14mm 14mm 14mm 14mm;
-    @bottom-right {
-      content: "Page " counter(page) " of " counter(pages);
-      font-size: 8pt;
-      color: #64748b;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+    margin: 15mm 15mm 15mm 15mm;
   }
 
   * {
@@ -23,7 +17,7 @@
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #1e293b;
+    color: #0f172a;
     background: #ffffff;
     line-height: 1.45;
     font-size: 9pt;
@@ -36,12 +30,14 @@
     break-after: page;
   }
 
+  /* Executive Cover Header */
   .cover-card {
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);
+    background: linear-gradient(135deg, #090d16 0%, #0f172a 60%, #1e293b 100%);
     color: #ffffff;
     padding: 22px 24px;
     border-radius: 10px;
     margin-bottom: 16px;
+    border: 1px solid #334155;
   }
 
   .badge-container {
@@ -60,9 +56,9 @@
     border-radius: 9999px;
   }
 
-  .badge-purple { background: rgba(168, 85, 247, 0.25); color: #e9d5ff; border: 1px solid rgba(168, 85, 247, 0.4); }
-  .badge-blue { background: rgba(59, 130, 246, 0.25); color: #bfdbfe; border: 1px solid rgba(59, 130, 246, 0.4); }
-  .badge-emerald { background: rgba(16, 185, 129, 0.25); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4); }
+  .badge-emerald { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+  .badge-cyan { background: rgba(6, 182, 212, 0.2); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.4); }
+  .badge-purple { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
 
   h1.project-title {
     font-size: 22pt;
@@ -101,14 +97,15 @@
     font-weight: 600;
   }
 
+  /* Section Styling */
   h2.section-header {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: 800;
     color: #0f172a;
     background: #f1f5f9;
-    border-left: 4px solid #4f46e5;
+    border-left: 4px solid #10b981;
     padding: 5px 10px;
-    margin: 14px 0 8px 0;
+    margin: 12px 0 8px 0;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -116,11 +113,11 @@
   }
 
   h2.section-header .num {
-    background: #4f46e5;
+    background: #10b981;
     color: #ffffff;
     padding: 1px 7px;
     border-radius: 4px;
-    font-size: 8pt;
+    font-size: 7.5pt;
     font-weight: 800;
   }
 
@@ -150,9 +147,9 @@
     padding: 8px 10px;
   }
 
-  .card-highlight { background: #eff6ff; border: 1px solid #bfdbfe; }
-  .card-success { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .card-highlight { background: #f0fdf4; border: 1px solid #bbf7d0; }
   .card-warning { background: #fffbeb; border: 1px solid #fde68a; }
+  .card-info { background: #f0f9ff; border: 1px solid #bae6fd; }
 
   .card-title {
     font-size: 8.5pt;
@@ -166,7 +163,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 6px 0 10px 0;
+    margin: 6px 0 8px 0;
     font-size: 8pt;
   }
 
@@ -187,11 +184,11 @@
   }
 
   .workflow-box {
-    background: #0f172a;
+    background: #090d16;
     color: #ffffff;
     border-radius: 6px;
-    padding: 10px;
-    margin: 8px 0;
+    padding: 8px 10px;
+    margin: 6px 0 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -210,7 +207,7 @@
 
   .wf-step strong {
     display: block;
-    color: #38bdf8;
+    color: #34d399;
     font-size: 8pt;
     margin-bottom: 1px;
   }
@@ -235,25 +232,25 @@
 
 <div class="cover-card">
   <div class="badge-container">
-    <span class="badge badge-purple">Inkloom AI Hackathon</span>
-    <span class="badge badge-blue">Round 2: The Build</span>
-    <span class="badge badge-emerald">Working MVP Submission</span>
+    <span class="badge badge-emerald">Inkloom AI Hackathon</span>
+    <span class="badge badge-cyan">Round 2: The Build</span>
+    <span class="badge badge-purple">Working Prototype Submission</span>
   </div>
   <h1 class="project-title">BrandCircuit</h1>
-  <p class="tagline">The Multimodal Pre-Flight CI/CD & Verified Claims Ledger for Enterprise Brand Content</p>
+  <p class="tagline">Multimodal Pre-Flight CI/CD & Claims Ledger for Enterprise Brand Content</p>
   
   <div class="meta-grid">
     <div class="meta-item">
-      <strong>Round</strong>
-      <span>Round 2 — The Build</span>
+      <strong>Live Repository</strong>
+      <span>github.com/SrinivasaKamathB/BrandCircuit</span>
     </div>
     <div class="meta-item">
       <strong>Core Workflow</strong>
-      <span>100% Functional & Testable</span>
+      <span>100% Testable & Functional</span>
     </div>
     <div class="meta-item">
-      <strong>Repository</strong>
-      <span>Git Stamped & Documented</span>
+      <strong>Architecture</strong>
+      <span>WebCrypto SHA-256 + Node.js 24</span>
     </div>
     <div class="meta-item">
       <strong>Evaluation Window</strong>
@@ -262,35 +259,35 @@
   </div>
 </div>
 
-<h2 class="section-header"><span class="num">1</span> Executive Summary & Core Working Workflow</h2>
+<h2 class="section-header"><span class="num">1</span> Working Core Workflow (Demonstrable Beginning-to-End)</h2>
 <p>
-  <strong>BrandCircuit</strong> transforms enterprise brand governance from a slow, bureaucratic gatekeeper into an intelligent pre-flight continuous compliance engine. The Round 2 MVP provides a complete, end-to-end working experience accessible to judges with zero installation or configuration required.
+  <strong>BrandCircuit</strong> transforms brand governance from a bureaucratic bottleneck into an automated pre-flight CI/CD pipeline. The Round 2 build is fully interactive, featuring both 1-click test datasets and custom manual input workflows:
 </p>
 
 <div class="workflow-box">
   <div class="wf-step">
-    <strong>1. Load Demo</strong>
-    1-Click test campaign with intentional violations
+    <strong>1. Input & Upload</strong>
+    Type copy, test demo campaigns, or upload custom banners
   </div>
   <div class="wf-arrow">→</div>
   <div class="wf-step">
     <strong>2. Claims Ledger</strong>
-    Atomic fact checks: Green / Yellow / Red
+    Atomic fact checks: Green (SSOT), Yellow, or Red (Disputed)
   </div>
   <div class="wf-arrow">→</div>
   <div class="wf-step">
     <strong>3. PR Blast Radius</strong>
-    Simulated Twitter backlash & FTC exposure
+    Simulated viral Twitter backlash & FTC exposure estimate
   </div>
   <div class="wf-arrow">→</div>
   <div class="wf-step">
     <strong>4. Agent Debate</strong>
-    Maverick vs. Guardian compromise slider
+    Maverick vs. Guardian live negotiation with 3-tier slider
   </div>
   <div class="wf-arrow">→</div>
   <div class="wf-step">
     <strong>5. Brand Passport</strong>
-    SHA-256 certified verification stamp
+    Real WebCrypto SHA-256 cryptographic stamp minted
   </div>
 </div>
 
@@ -298,96 +295,96 @@
 <table>
   <thead>
     <tr>
-      <th style="width:25%;">Feature Module</th>
-      <th style="width:50%;">What is Built & Working</th>
-      <th style="width:25%;">User Experience</th>
+      <th style="width:24%;">Feature Module</th>
+      <th style="width:48%;">Technical Implementation</th>
+      <th style="width:28%;">User Capability</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Verified Claims Ledger (SSOT)</strong></td>
-      <td>Extracts factual assertions, statistics, and guarantees. Validates against Single Source of Truth registry into 🟢 Verified, 🟡 Needs Citation, 🔴 Disputed.</td>
-      <td>Inline color-coded tags with direct 1-click "Resolve" shortcuts.</td>
+      <td>Deconstructs drafts into atomic factual statements. Cross-references against internal corporate Single Source of Truth into Verified, Needs Citation, and Disputed.</td>
+      <td>Inline color-coded badges with direct 1-click "Resolve" routing.</td>
     </tr>
     <tr>
       <td><strong>PR Blast Radius & Crisis Simulator</strong></td>
-      <td>Simulates potential social media backlash (Twitter/X community note risk) and calculates projected regulatory penalty exposure (FTC §5).</td>
-      <td>Live crisis gauge & simulated public backlash thread.</td>
+      <td>Calculates potential financial exposure under FTC §5 and renders a simulated public backlash thread with community notes and skeptical investor replies.</td>
+      <td>Visualizes real-time business and legal risk before publication.</td>
     </tr>
     <tr>
       <td><strong>Maverick vs. Guardian Agent Debate</strong></td>
-      <td>Interactive multi-agent negotiation between Growth Marketing (high conversion) and Compliance Counsel (zero legal liability) with dynamic slider.</td>
-      <td>Slider dynamically updates copy across 3 levels of risk/virality.</td>
+      <td>Multi-agent negotiation between Growth Marketing (high conversion) and Compliance Counsel (zero liability) with quick-click presets (Strict, Balanced, High Growth).</td>
+      <td>Compromise engine dynamically updates copy while preserving creative punch.</td>
     </tr>
     <tr>
       <td><strong>Multimodal Visual DNA Inspector</strong></td>
-      <td>Canvas overlay analyzing marketing banners for logo exclusion zone clear-space, color drift tolerance ($\Delta E$), and WCAG contrast.</td>
-      <td>Interactive modal showing real-time pass/fail metrics.</td>
+      <td>Client-side canvas inspector analyzing marketing banners for logo clear-space exclusion boundaries, color drift tolerance ($\Delta E = 4.2$), and WCAG contrast.</td>
+      <td>Supports real image uploads with live thumbnail and canvas overlay.</td>
     </tr>
     <tr>
       <td><strong>Cryptographic Brand Passport</strong></td>
-      <td>Mints tamper-proof SHA-256 cryptographic verification tokens once content meets 100% compliance criteria.</td>
-      <td>Audit-proof certificate ready for CMS and social API dispatch.</td>
+      <td>Uses browser WebCrypto API (<code>crypto.subtle.digest</code>) to generate authentic SHA-256 digests once content satisfies all compliance checks.</td>
+      <td>Tamper-proof digital seal allowing downstream CMS and social scheduling.</td>
     </tr>
     <tr>
-      <td><strong>Role-Based Collaboration</strong></td>
+      <td><strong>Role-Based Workspaces</strong></td>
       <td>Instant toggle between Creator Drafting Mode and Reviewer Sign-Off Queue.</td>
-      <td>Header role switcher updating permissions in real time.</td>
+      <td>Simulates production handover between agencies and compliance leads.</td>
     </tr>
   </tbody>
 </table>
 
-<div class="page-break"></div>
-
 <h2 class="section-header"><span class="num">3</span> Technology & Implementation Details</h2>
 <div class="grid-2">
   <div class="card card-highlight">
-    <div class="card-title">🖥️ Frontend Architecture</div>
+    <div class="card-title">💻 Frontend Architecture</div>
     <ul style="font-size:8pt; margin:0;">
-      <li><strong>Responsive UI:</strong> Tailwind CSS with dark-mode executive styling.</li>
-      <li><strong>Interactive Workspaces:</strong> Real-time reactive state management for the compromise slider and modal visual inspector.</li>
-      <li><strong>Zero-Barrier Judge Experience:</strong> Includes pre-loaded demo buttons for instant evaluation.</li>
+      <li><strong>Responsive Cyber-Themed UI:</strong> High-contrast dark aesthetic with Tailwind CSS, custom glowing badges, and Lucide/FontAwesome iconography.</li>
+      <li><strong>Dynamic Policy Engine:</strong> Active text scanner that analyzes custom copy for prohibited guarantees, unverified claims, and aggressive tone.</li>
+      <li><strong>HTML5 Canvas Visual Pipeline:</strong> Interactive image inspector rendering logo boundaries and color drift analysis.</li>
     </ul>
   </div>
-  <div class="card card-highlight">
-    <div class="card-title">⚙️ Backend & AI Engine</div>
+  <div class="card card-info">
+    <div class="card-title">⚙️ Backend & Security Architecture</div>
     <ul style="font-size:8pt; margin:0;">
-      <li><strong>Node.js Server (`server.js`):</strong> Asynchronous HTTP server with zero runtime external dependencies for instant portability.</li>
-      <li><strong>Gemini Multimodal Vision:</strong> Unified evaluation pipeline inspecting copy, logo boundaries, and color hex drift.</li>
-      <li><strong>Cryptographic Verification:</strong> SHA-256 digest hashing for immutable compliance audit trails.</li>
+      <li><strong>Node.js v24 Microserver (<code>server.js</code>):</strong> Lightweight, zero-dependency async HTTP server ensuring 100% portability.</li>
+      <li><strong>Real WebCrypto API Cryptography:</strong> Mathematically valid SHA-256 content hashing for tamper detection.</li>
+      <li><strong>Enterprise Hardening:</strong> Production OWASP headers including strict CSP, X-Frame-Options: DENY, nosniff, and zero data retention.</li>
     </ul>
   </div>
 </div>
 
+<div class="page-break"></div>
+
 <h2 class="section-header"><span class="num">4</span> Explanation of Changes Made to Original Plan</h2>
 <p>
-  During Round 1, our conceptual proposal focused primarily on static text highlighting and standard guideline lookup. In building the Round 2 MVP, we made three deliberate design enhancements to maximize real enterprise value:
+  During Round 1, our conceptual proposal focused on static text highlighting and standard handbook lookups. In building the Round 2 MVP, we implemented three deliberate architectural evolutions:
 </p>
 <ul>
-  <li><strong>From Passive Warnings to Consequence Simulation:</strong> Traditional checkers output dry error codes. We built the <em>PR Blast Radius & Crisis Simulator</em> to visualize the concrete cost of failure (viral backlash and FTC regulatory exposure), giving non-technical executives an immediate business case.</li>
-  <li><strong>From Rigid LLM Rewrites to Multi-Agent Negotiation:</strong> Copywriters frequently reject AI-generated rewrites because they remove creative punch. We introduced the <em>Maverick vs. Guardian Debate</em> with a live compromise slider, allowing creators to balance legal safety with marketing conversion hooks.</li>
-  <li><strong>From Simple Status Toggles to Cryptographic Passports:</strong> Replaced standard "Approved" boolean flags with verifiable SHA-256 digital passports to prevent post-approval content tampering in enterprise publishing pipelines.</li>
+  <li><strong>From Passive Warnings to "PR Blast Radius":</strong> Simple red warning banners fail to motivate marketing teams. We introduced the <em>PR Blast Radius & Crisis Simulator</em> to visualize the concrete cost of failure (viral backlash and FTC regulatory exposure), creating an immediate executive business case.</li>
+  <li><strong>From Rigid LLM Overrides to "Multi-Agent Negotiation":</strong> Copywriters reject standard AI rewrites because they remove creative voice and conversion punch. We introduced the <em>Maverick vs. Guardian Debate</em> with a 3-tier compromise slider, enabling creators to balance legal safety with growth hooks.</li>
+  <li><strong>From Status Flags to "Cryptographic Passports":</strong> Rather than a superficial "Approved" checkbox, we engineered a verifiable SHA-256 digital passport to prevent post-approval content tampering in enterprise publishing pipelines.</li>
 </ul>
 
 <h2 class="section-header"><span class="num">5</span> Three Major Improvements for Round 3 (The Mastermind Roadmap)</h2>
 <p>
-  As mandated by the competition rules, these three major additions represent meaningful architectural capabilities:
+  As mandated by competition rules, these three meaningful additions represent deep architectural expansions:
 </p>
 
 <div class="grid-3">
-  <div class="card card-success">
+  <div class="card card-highlight">
     <div class="card-title"><span class="pill pill-green">IMPROVEMENT 1</span> Self-Healing Playbook</div>
     <p style="font-size:7.5pt; margin:0;">
-      <strong>Auto-PR to Git & Figma:</strong> When the system detects repeated team blindspots across 50+ posts, it autonomously drafts GitHub Pull Requests to update <code>brand-guidelines.md</code> and pushes design token patches directly into Figma.
+      <strong>Autonomous Git & Figma PRs:</strong> When the system detects repeated team blindspots across 50+ posts, it autonomously creates GitHub Pull Requests updating <code>brand-guidelines.md</code> and syncs new design tokens directly into Figma. The brand handbook continuously heals and updates itself.
     </p>
   </div>
   <div class="card card-warning">
     <div class="card-title"><span class="pill pill-amber">IMPROVEMENT 2</span> 10-Persona Jury</div>
     <p style="font-size:7.5pt; margin:0;">
-      <strong>Synthetic Audience Simulation:</strong> Expands the 2-agent debate into an autonomous panel of 10 synthetic AI personas (FTC auditor, skeptical enterprise buyer, competitor PR lead, tech critic) to predict virality, controversy, and sentiment before ad spend.
+      <strong>Synthetic Audience Simulation:</strong> Expands the 2-agent debate into an autonomous panel of 10 synthetic AI personas (FTC auditor, skeptical enterprise buyer, competitor PR lead, tech critic) to predict virality, controversy, and sentiment with statistical confidence bounds before ad spend.
     </p>
   </div>
-  <div class="card card-highlight">
+  <div class="card card-info">
     <div class="card-title"><span class="pill pill-red">IMPROVEMENT 3</span> ZK Brand Proofs</div>
     <p style="font-size:7.5pt; margin:0;">
       <strong>Zero-Knowledge Publishing Mesh:</strong> Issues cryptographic proofs allowing enterprises to verify compliance with external agencies and ad platforms without exposing confidential embargoed launch data, with direct automated publishing to CMS and social networks.
@@ -395,9 +392,43 @@
   </div>
 </div>
 
-<div style="margin-top:20px; padding:10px; border:1px dashed #94a3b8; border-radius:6px; text-align:center; font-size:8pt; color:#64748b;">
-  <strong>BrandCircuit • Round 2 Build Submission</strong> • Developed for the Inkloom AI Hackathon (October 2026)
-</div>
+<h2 class="section-header"><span class="num">6</span> Quick-Start Instructions for Evaluators</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%;">Step</th>
+      <th style="width:45%;">Action</th>
+      <th style="width:35%;">What to Observe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Launch App</strong></td>
+      <td>Run <code>node server.js</code> and open <code>http://localhost:3000</code>.</td>
+      <td>Cyber-themed dark interface with live system metrics.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Load Demo</strong></td>
+      <td>Click <strong>"Load Risky Campaign (Violations)"</strong> at top right.</td>
+      <td>Compliance drops to 64%; PR Blast Radius spikes to 87%.</td>
+    </tr>
+    <tr>
+      <td><strong>3. Resolve Claims</strong></td>
+      <td>Click <strong>"Resolve"</strong> in the Claims Ledger $\rightarrow$ pick <strong>"Balanced"</strong> $\rightarrow$ click <strong>"Apply Fix"</strong>.</td>
+      <td>Draft auto-updates; Compliance jumps to 96% (Green).</td>
+    </tr>
+    <tr>
+      <td><strong>4. Visual Check</strong></td>
+      <td>Click <strong>"Upload Banner"</strong> or use sample $\rightarrow$ click <strong>"Inspect DNA"</strong>.</td>
+      <td>Canvas overlay checking logo padding & hex color drift.</td>
+    </tr>
+    <tr>
+      <td><strong>5. Certify</strong></td>
+      <td>Click <strong>"Certify & Mint Cryptographic Passport"</strong>.</td>
+      <td>Real SHA-256 mathematical hash generated for publishing.</td>
+    </tr>
+  </tbody>
+</table>
 
 </body>
 </html>
