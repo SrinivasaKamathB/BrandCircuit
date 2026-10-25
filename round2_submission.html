@@ -6,7 +6,7 @@
 <style>
   @page {
     size: A4;
-    margin: 15mm 15mm 15mm 15mm;
+    margin: 12mm 14mm 12mm 14mm;
   }
 
   * {
@@ -19,37 +19,31 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #0f172a;
     background: #ffffff;
-    line-height: 1.45;
-    font-size: 9pt;
+    line-height: 1.4;
+    font-size: 8.5pt;
     margin: 0;
     padding: 0;
   }
 
-  .page-break {
-    page-break-after: always;
-    break-after: page;
-  }
-
-  /* Executive Cover Header */
   .cover-card {
-    background: linear-gradient(135deg, #090d16 0%, #0f172a 60%, #1e293b 100%);
+    background: linear-gradient(135deg, #070b14 0%, #0f172a 60%, #1e293b 100%);
     color: #ffffff;
-    padding: 22px 24px;
-    border-radius: 10px;
-    margin-bottom: 16px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
     border: 1px solid #334155;
   }
 
   .badge-container {
     display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: 6px;
+    margin-bottom: 6px;
   }
 
   .badge {
     display: inline-block;
-    padding: 2px 8px;
-    font-size: 7pt;
+    padding: 2px 7px;
+    font-size: 6.5pt;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -61,7 +55,7 @@
   .badge-purple { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
 
   h1.project-title {
-    font-size: 22pt;
+    font-size: 18pt;
     font-weight: 800;
     margin: 0 0 2px 0;
     letter-spacing: -0.5px;
@@ -69,26 +63,26 @@
   }
 
   p.tagline {
-    font-size: 10pt;
+    font-size: 9pt;
     color: #cbd5e1;
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
     font-weight: 400;
   }
 
   .meta-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: 6px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 10px;
-    font-size: 7.5pt;
+    padding-top: 8px;
+    font-size: 7pt;
   }
 
   .meta-item strong {
     display: block;
     color: #94a3b8;
     text-transform: uppercase;
-    font-size: 6.5pt;
+    font-size: 6pt;
     margin-bottom: 1px;
   }
 
@@ -97,54 +91,53 @@
     font-weight: 600;
   }
 
-  /* Section Styling */
   h2.section-header {
-    font-size: 10.5pt;
+    font-size: 9.5pt;
     font-weight: 800;
     color: #0f172a;
     background: #f1f5f9;
-    border-left: 4px solid #10b981;
-    padding: 5px 10px;
-    margin: 12px 0 8px 0;
+    border-left: 3px solid #10b981;
+    padding: 4px 8px;
+    margin: 10px 0 6px 0;
     display: flex;
     align-items: center;
-    gap: 8px;
-    border-radius: 0 6px 6px 0;
+    gap: 6px;
+    border-radius: 0 4px 4px 0;
   }
 
   h2.section-header .num {
     background: #10b981;
     color: #ffffff;
-    padding: 1px 7px;
-    border-radius: 4px;
-    font-size: 7.5pt;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 7pt;
     font-weight: 800;
   }
 
   p {
-    margin: 0 0 6px 0;
+    margin: 0 0 5px 0;
     color: #334155;
   }
 
   .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 8px;
+    margin-bottom: 6px;
   }
 
   .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: 6px;
+    margin-bottom: 6px;
   }
 
   .card {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 8px 10px;
+    padding: 7px 9px;
   }
 
   .card-highlight { background: #f0fdf4; border: 1px solid #bbf7d0; }
@@ -152,32 +145,32 @@
   .card-info { background: #f0f9ff; border: 1px solid #bae6fd; }
 
   .card-title {
-    font-size: 8.5pt;
+    font-size: 8pt;
     font-weight: 700;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 6px 0 8px 0;
-    font-size: 8pt;
+    margin: 4px 0 6px 0;
+    font-size: 7.5pt;
   }
 
   th {
-    background: #f8fafc;
+    background: #f1f5f9;
     color: #0f172a;
     font-weight: 700;
     text-align: left;
-    padding: 6px 8px;
+    padding: 5px 7px;
     border: 1px solid #cbd5e1;
   }
 
   td {
-    padding: 5px 8px;
+    padding: 4px 7px;
     border: 1px solid #e2e8f0;
     color: #334155;
     vertical-align: top;
@@ -187,49 +180,55 @@
     background: #090d16;
     color: #ffffff;
     border-radius: 6px;
-    padding: 8px 10px;
-    margin: 6px 0 10px 0;
+    padding: 7px 9px;
+    margin: 5px 0 8px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 7.5pt;
+    font-size: 7pt;
   }
 
   .wf-step {
     background: #1e293b;
     border: 1px solid #334155;
-    padding: 6px 8px;
+    padding: 5px 7px;
     border-radius: 4px;
     text-align: center;
     flex: 1;
-    margin: 0 3px;
+    margin: 0 2px;
   }
 
   .wf-step strong {
     display: block;
     color: #34d399;
-    font-size: 8pt;
+    font-size: 7.5pt;
     margin-bottom: 1px;
   }
 
-  .wf-arrow { color: #64748b; font-size: 10pt; font-weight: bold; }
+  .wf-arrow { color: #64748b; font-size: 9pt; font-weight: bold; }
 
-  ul { margin: 0 0 6px 0; padding-left: 16px; }
-  li { margin-bottom: 2px; }
+  ul { margin: 0 0 5px 0; padding-left: 14px; }
+  li { margin-bottom: 1.5px; }
 
   .pill {
-    padding: 1px 5px;
+    padding: 1px 4px;
     border-radius: 3px;
-    font-size: 6.5pt;
+    font-size: 6pt;
     font-weight: 700;
   }
   .pill-green { background: #dcfce7; color: #15803d; }
   .pill-amber { background: #fef9c3; color: #854d0e; }
   .pill-red { background: #fee2e2; color: #b91c1c; }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
 </style>
 </head>
 <body>
 
+<!-- ==================== PAGE 1 ==================== -->
 <div class="cover-card">
   <div class="badge-container">
     <span class="badge badge-emerald">Inkloom AI Hackathon</span>
@@ -246,7 +245,7 @@
     </div>
     <div class="meta-item">
       <strong>Core Workflow</strong>
-      <span>100% Testable & Functional</span>
+      <span>100% Testable & Working</span>
     </div>
     <div class="meta-item">
       <strong>Architecture</strong>
@@ -259,9 +258,9 @@
   </div>
 </div>
 
-<h2 class="section-header"><span class="num">1</span> Working Core Workflow (Demonstrable Beginning-to-End)</h2>
+<h2 class="section-header"><span class="num">1</span> Core Working Workflow (End-to-End Pipeline)</h2>
 <p>
-  <strong>BrandCircuit</strong> transforms brand governance from a bureaucratic bottleneck into an automated pre-flight CI/CD pipeline. The Round 2 build is fully interactive, featuring both 1-click test datasets and custom manual input workflows:
+  BrandCircuit automates pre-publication brand governance through an integrated 5-stage pre-flight pipeline:
 </p>
 
 <div class="workflow-box">
@@ -291,7 +290,125 @@
   </div>
 </div>
 
-<h2 class="section-header"><span class="num">2</span> List of Completed Features (Round 2 MVP)</h2>
+<h2 class="section-header"><span class="num">2</span> Product Options Walkthrough: How Each Feature Works in the App</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:22%;">Product Option</th>
+      <th style="width:38%;">How to Use It in the Interface</th>
+      <th style="width:40%;">What the System Executes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Load Risky Campaign</strong></td>
+      <td>Click the amber button at the top right.</td>
+      <td>Loads marketing copy with unverified claims ("100% money-back guarantee"). Triggers compliance drop to 64% and spikes PR Blast Radius to 87%.</td>
+    </tr>
+    <tr>
+      <td><strong>Load Clean Campaign</strong></td>
+      <td>Click the emerald button at the top right.</td>
+      <td>Loads verified copy. Instantly awards 98% compliance, Low (2%) crisis risk, and validates all 16 claims against the SSOT registry.</td>
+    </tr>
+    <tr>
+      <td><strong>Pre-Flight Check Scanner</strong></td>
+      <td>Type custom copy or click <code>⚡ Run Pre-Flight Check</code>.</td>
+      <td>Actively parses copy in real time for banned terms, unverified metrics, and aggressive tone; dynamically recalculates risk scores.</td>
+    </tr>
+    <tr>
+      <td><strong>Verified Claims Ledger</strong></td>
+      <td>Review atomic claim cards directly below the editor.</td>
+      <td>Labels claims as 🟢 Verified SSOT, 🟡 Needs Citation, or 🔴 Disputed Claim. Offers 1-click "Resolve" shortcut to the debate engine.</td>
+    </tr>
+    <tr>
+      <td><strong>PR Crisis Simulator</strong></td>
+      <td>Inspect the right-hand panel during violation states.</td>
+      <td>Simulates potential viral Twitter/X backlash thread with community notes and calculates projected FTC regulatory fine exposure ($45,000).</td>
+    </tr>
+    <tr>
+      <td><strong>Maverick vs. Guardian Debate</strong></td>
+      <td>Select <code>🛡️ Strict Legal</code>, <code>⚖️ Balanced</code>, or <code>🚀 High Growth</code>, then click <code>Apply Fix</code>.</td>
+      <td>Multi-agent negotiation synthesizes a compromise rewrite that preserves marketing conversion punch while ensuring 100% legal compliance.</td>
+    </tr>
+    <tr>
+      <td><strong>Banner Image Upload & DNA Inspector</strong></td>
+      <td>Click <code>Upload Banner</code> (or <code>Get Test Image</code>), then click <code>Inspect DNA</code>.</td>
+      <td>Renders banner onto an interactive canvas overlay, checking Logo Exclusion Zone clear-space, Color Drift tolerance ($\Delta E = 4.2$), and WCAG contrast.</td>
+    </tr>
+    <tr>
+      <td><strong>Cryptographic Brand Passport</strong></td>
+      <td>Once fixed, click <code>Certify & Mint Cryptographic Passport</code>.</td>
+      <td>Computes real browser WebCrypto SHA-256 mathematical hash, minting a tamper-proof certificate for automated CMS and social scheduling.</td>
+    </tr>
+    <tr>
+      <td><strong>Creator ↔ Reviewer Roles</strong></td>
+      <td>Toggle <code>Creator</code> or <code>Reviewer</code> in the top navigation bar.</td>
+      <td>Switches between drafting/pre-flight workspace and compliance manager approval queue with immutable audit logging.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="section-header"><span class="num">3</span> Technical Architecture & Security Implementation</h2>
+<div class="grid-2">
+  <div class="card card-highlight">
+    <div class="card-title">💻 Frontend & Image Canvas Pipeline</div>
+    <ul style="font-size:7.5pt; margin:0;">
+      <li><strong>Responsive Cyber UI:</strong> Dark Obsidian aesthetic (#030712) with electric emerald & cyan neon accents and Tailwind CSS.</li>
+      <li><strong>Real FileReader & Canvas Engine:</strong> Renders uploaded marketing banners with bounding box overlays and color distance calculation.</li>
+      <li><strong>Dynamic Policy Engine:</strong> Active text parser evaluating input text against brand rules.</li>
+    </ul>
+  </div>
+  <div class="card card-info">
+    <div class="card-title">⚙️ Backend, Cryptography & Security</div>
+    <ul style="font-size:7.5pt; margin:0;">
+      <li><strong>Node.js v24 Microserver:</strong> Asynchronous zero-dependency HTTP server with REST endpoints.</li>
+      <li><strong>Browser WebCrypto API:</strong> Real mathematical SHA-256 digest hashing (<code>crypto.subtle.digest</code>) for verifiable content passports.</li>
+      <li><strong>Enterprise Hardening:</strong> OWASP security headers (CSP, nosniff, DENY, strict referrer policy, zero data retention).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page-break"></div>
+
+<h2 class="section-header"><span class="num">4</span> Explanation of Changes Made to Original Plan</h2>
+<p>
+  During Round 1, our conceptual proposal focused on static text highlighting and standard handbook lookups. In building the Round 2 MVP, we implemented three deliberate architectural evolutions:
+</p>
+<ul>
+  <li><strong>From Passive Warnings to "PR Blast Radius":</strong> Simple red warning banners fail to motivate marketing teams. We introduced the <em>PR Blast Radius & Crisis Simulator</em> to visualize the concrete cost of failure (viral backlash and FTC regulatory exposure), creating an immediate executive business case.</li>
+  <li><strong>From Rigid LLM Overrides to "Multi-Agent Negotiation":</strong> Copywriters reject standard AI rewrites because they remove creative voice and conversion punch. We introduced the <em>Maverick vs. Guardian Debate</em> with a 3-tier compromise slider, enabling creators to balance legal safety with growth hooks.</li>
+  <li><strong>From Status Flags to "Cryptographic Passports":</strong> Rather than a superficial "Approved" checkbox, we engineered a verifiable SHA-256 digital passport to prevent post-approval content tampering in enterprise publishing pipelines.</li>
+</ul>
+
+<h2 class="section-header"><span class="num">5</span> Three Major Improvements for Round 3 (The Mastermind Roadmap)</h2>
+<p>
+  As mandated by competition rules, these three meaningful additions represent deep architectural expansions:
+</p>
+
+<div class="grid-3">
+  <div class="card card-highlight">
+    <div class="card-title"><span class="pill pill-green">IMPROVEMENT 1</span> Self-Healing Playbook</div>
+    <p style="font-size:7.5pt; margin:0;">
+      <strong>Autonomous Git & Figma PRs:</strong> When the system detects repeated team blindspots across 50+ posts, it autonomously creates GitHub Pull Requests updating <code>brand-guidelines.md</code> and syncs new design tokens directly into Figma. The brand handbook continuously heals and updates itself.
+    </p>
+  </div>
+  <div class="card card-warning">
+    <div class="card-title"><span class="pill pill-amber">IMPROVEMENT 2</span> 10-Persona Jury</div>
+    <p style="font-size:7.5pt; margin:0;">
+      <strong>Synthetic Audience Simulation:</strong> Expands the 2-agent debate into an autonomous panel of 10 synthetic AI personas (FTC auditor, skeptical enterprise buyer, competitor PR lead, tech critic) to predict virality, controversy, and sentiment with statistical confidence bounds before ad spend.
+    </p>
+  </div>
+  <div class="card card-info">
+    <div class="card-title"><span class="pill pill-red">IMPROVEMENT 3</span> ZK Brand Proofs</div>
+    <p style="font-size:7.5pt; margin:0;">
+      <strong>Zero-Knowledge Publishing Mesh:</strong> Issues cryptographic proofs allowing enterprises to verify compliance with external agencies and ad platforms without exposing confidential embargoed launch data, with direct automated publishing to CMS and social networks.
+    </p>
+  </div>
+</div>
+
+<h2 class="section-header"><span class="num">6</span> List of Completed Features (Round 2 MVP Matrix)</h2>
 <table>
   <thead>
     <tr>
@@ -334,77 +451,19 @@
   </tbody>
 </table>
 
-<h2 class="section-header"><span class="num">3</span> Technology & Implementation Details</h2>
-<div class="grid-2">
-  <div class="card card-highlight">
-    <div class="card-title">💻 Frontend Architecture</div>
-    <ul style="font-size:8pt; margin:0;">
-      <li><strong>Responsive Cyber-Themed UI:</strong> High-contrast dark aesthetic with Tailwind CSS, custom glowing badges, and Lucide/FontAwesome iconography.</li>
-      <li><strong>Dynamic Policy Engine:</strong> Active text scanner that analyzes custom copy for prohibited guarantees, unverified claims, and aggressive tone.</li>
-      <li><strong>HTML5 Canvas Visual Pipeline:</strong> Interactive image inspector rendering logo boundaries and color drift analysis.</li>
-    </ul>
-  </div>
-  <div class="card card-info">
-    <div class="card-title">⚙️ Backend & Security Architecture</div>
-    <ul style="font-size:8pt; margin:0;">
-      <li><strong>Node.js v24 Microserver (<code>server.js</code>):</strong> Lightweight, zero-dependency async HTTP server ensuring 100% portability.</li>
-      <li><strong>Real WebCrypto API Cryptography:</strong> Mathematically valid SHA-256 content hashing for tamper detection.</li>
-      <li><strong>Enterprise Hardening:</strong> Production OWASP headers including strict CSP, X-Frame-Options: DENY, nosniff, and zero data retention.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="page-break"></div>
-
-<h2 class="section-header"><span class="num">4</span> Explanation of Changes Made to Original Plan</h2>
-<p>
-  During Round 1, our conceptual proposal focused on static text highlighting and standard handbook lookups. In building the Round 2 MVP, we implemented three deliberate architectural evolutions:
-</p>
-<ul>
-  <li><strong>From Passive Warnings to "PR Blast Radius":</strong> Simple red warning banners fail to motivate marketing teams. We introduced the <em>PR Blast Radius & Crisis Simulator</em> to visualize the concrete cost of failure (viral backlash and FTC regulatory exposure), creating an immediate executive business case.</li>
-  <li><strong>From Rigid LLM Overrides to "Multi-Agent Negotiation":</strong> Copywriters reject standard AI rewrites because they remove creative voice and conversion punch. We introduced the <em>Maverick vs. Guardian Debate</em> with a 3-tier compromise slider, enabling creators to balance legal safety with growth hooks.</li>
-  <li><strong>From Status Flags to "Cryptographic Passports":</strong> Rather than a superficial "Approved" checkbox, we engineered a verifiable SHA-256 digital passport to prevent post-approval content tampering in enterprise publishing pipelines.</li>
-</ul>
-
-<h2 class="section-header"><span class="num">5</span> Three Major Improvements for Round 3 (The Mastermind Roadmap)</h2>
-<p>
-  As mandated by competition rules, these three meaningful additions represent deep architectural expansions:
-</p>
-
-<div class="grid-3">
-  <div class="card card-highlight">
-    <div class="card-title"><span class="pill pill-green">IMPROVEMENT 1</span> Self-Healing Playbook</div>
-    <p style="font-size:7.5pt; margin:0;">
-      <strong>Autonomous Git & Figma PRs:</strong> When the system detects repeated team blindspots across 50+ posts, it autonomously creates GitHub Pull Requests updating <code>brand-guidelines.md</code> and syncs new design tokens directly into Figma. The brand handbook continuously heals and updates itself.
-    </p>
-  </div>
-  <div class="card card-warning">
-    <div class="card-title"><span class="pill pill-amber">IMPROVEMENT 2</span> 10-Persona Jury</div>
-    <p style="font-size:7.5pt; margin:0;">
-      <strong>Synthetic Audience Simulation:</strong> Expands the 2-agent debate into an autonomous panel of 10 synthetic AI personas (FTC auditor, skeptical enterprise buyer, competitor PR lead, tech critic) to predict virality, controversy, and sentiment with statistical confidence bounds before ad spend.
-    </p>
-  </div>
-  <div class="card card-info">
-    <div class="card-title"><span class="pill pill-red">IMPROVEMENT 3</span> ZK Brand Proofs</div>
-    <p style="font-size:7.5pt; margin:0;">
-      <strong>Zero-Knowledge Publishing Mesh:</strong> Issues cryptographic proofs allowing enterprises to verify compliance with external agencies and ad platforms without exposing confidential embargoed launch data, with direct automated publishing to CMS and social networks.
-    </p>
-  </div>
-</div>
-
-<h2 class="section-header"><span class="num">6</span> Quick-Start Instructions for Evaluators</h2>
+<h2 class="section-header"><span class="num">7</span> Quick-Start Evaluator Guide: 5-Step Verification Protocol</h2>
 <table>
   <thead>
     <tr>
-      <th style="width:20%;">Step</th>
-      <th style="width:45%;">Action</th>
-      <th style="width:35%;">What to Observe</th>
+      <th style="width:16%;">Step</th>
+      <th style="width:44%;">Action</th>
+      <th style="width:40%;">Expected System Output</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>1. Launch App</strong></td>
-      <td>Run <code>node server.js</code> and open <code>http://localhost:3000</code>.</td>
+      <td><strong>1. Launch</strong></td>
+      <td>Run <code>node server.js</code> $\rightarrow$ open <code>http://localhost:3000</code>.</td>
       <td>Cyber-themed dark interface with live system metrics.</td>
     </tr>
     <tr>
@@ -414,7 +473,7 @@
     </tr>
     <tr>
       <td><strong>3. Resolve Claims</strong></td>
-      <td>Click <strong>"Resolve"</strong> in the Claims Ledger $\rightarrow$ pick <strong>"Balanced"</strong> $\rightarrow$ click <strong>"Apply Fix"</strong>.</td>
+      <td>Click <strong>"Resolve"</strong> in Claims Ledger $\rightarrow$ pick <strong>"Balanced"</strong> $\rightarrow$ click <strong>"Apply Fix"</strong>.</td>
       <td>Draft auto-updates; Compliance jumps to 96% (Green).</td>
     </tr>
     <tr>
