@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BrandCircuit - Round 2 Build Submission</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 8pt;
+      color: #64748b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.45;
+    font-size: 9pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .cover-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);
+    color: #ffffff;
+    padding: 22px 24px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+
+  .badge-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 9999px;
+  }
+
+  .badge-purple { background: rgba(168, 85, 247, 0.25); color: #e9d5ff; border: 1px solid rgba(168, 85, 247, 0.4); }
+  .badge-blue { background: rgba(59, 130, 246, 0.25); color: #bfdbfe; border: 1px solid rgba(59, 130, 246, 0.4); }
+  .badge-emerald { background: rgba(16, 185, 129, 0.25); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+  h1.project-title {
+    font-size: 22pt;
+    font-weight: 800;
+    margin: 0 0 2px 0;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  p.tagline {
+    font-size: 10pt;
+    color: #cbd5e1;
+    margin: 0 0 12px 0;
+    font-weight: 400;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 10px;
+    font-size: 7.5pt;
+  }
+
+  .meta-item strong {
+    display: block;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 6.5pt;
+    margin-bottom: 1px;
+  }
+
+  .meta-item span {
+    color: #f8fafc;
+    font-weight: 600;
+  }
+
+  h2.section-header {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #0f172a;
+    background: #f1f5f9;
+    border-left: 4px solid #4f46e5;
+    padding: 5px 10px;
+    margin: 14px 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  h2.section-header .num {
+    background: #4f46e5;
+    color: #ffffff;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 8pt;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0 0 6px 0;
+    color: #334155;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+
+  .card-highlight { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .card-success { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .card-warning { background: #fffbeb; border: 1px solid #fde68a; }
+
+  .card-title {
+    font-size: 8.5pt;
+    font-weight: 700;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 10px 0;
+    font-size: 8pt;
+  }
+
+  th {
+    background: #f8fafc;
+    color: #0f172a;
+    font-weight: 700;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #cbd5e1;
+  }
+
+  td {
+    padding: 5px 8px;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: top;
+  }
+
+  .workflow-box {
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+  }
+
+  .wf-step {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 6px 8px;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1;
+    margin: 0 3px;
+  }
+
+  .wf-step strong {
+    display: block;
+    color: #38bdf8;
+    font-size: 8pt;
+    margin-bottom: 1px;
+  }
+
+  .wf-arrow { color: #64748b; font-size: 10pt; font-weight: bold; }
+
+  ul { margin: 0 0 6px 0; padding-left: 16px; }
+  li { margin-bottom: 2px; }
+
+  .pill {
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 6.5pt;
+    font-weight: 700;
+  }
+  .pill-green { background: #dcfce7; color: #15803d; }
+  .pill-amber { background: #fef9c3; color: #854d0e; }
+  .pill-red { background: #fee2e2; color: #b91c1c; }
+</style>
+</head>
+<body>
+
+<div class="cover-card">
+  <div class="badge-container">
+    <span class="badge badge-purple">Inkloom AI Hackathon</span>
+    <span class="badge badge-blue">Round 2: The Build</span>
+    <span class="badge badge-emerald">Working MVP Submission</span>
+  </div>
+  <h1 class="project-title">BrandCircuit</h1>
+  <p class="tagline">The Multimodal Pre-Flight CI/CD & Verified Claims Ledger for Enterprise Brand Content</p>
+  
+  <div class="meta-grid">
+    <div class="meta-item">
+      <strong>Round</strong>
+      <span>Round 2 — The Build</span>
+    </div>
+    <div class="meta-item">
+      <strong>Core Workflow</strong>
+      <span>100% Functional & Testable</span>
+    </div>
+    <div class="meta-item">
+      <strong>Repository</strong>
+      <span>Git Stamped & Documented</span>
+    </div>
+    <div class="meta-item">
+      <strong>Evaluation Window</strong>
+      <span>22–25 October 2026</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-header"><span class="num">1</span> Executive Summary & Core Working Workflow</h2>
+<p>
+  <strong>BrandCircuit</strong> transforms enterprise brand governance from a slow, bureaucratic gatekeeper into an intelligent pre-flight continuous compliance engine. The Round 2 MVP provides a complete, end-to-end working experience accessible to judges with zero installation or configuration required.
+</p>
+
+<div class="workflow-box">
+  <div class="wf-step">
+    <strong>1. Load Demo</strong>
+    1-Click test campaign with intentional violations
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>2. Claims Ledger</strong>
+    Atomic fact checks: Green / Yellow / Red
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>3. PR Blast Radius</strong>
+    Simulated Twitter backlash & FTC exposure
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>4. Agent Debate</strong>
+    Maverick vs. Guardian compromise slider
+  </div>
+  <div class="wf-arrow">→</div>
+  <div class="wf-step">
+    <strong>5. Brand Passport</strong>
+    SHA-256 certified verification stamp
+  </div>
+</div>
+
+<h2 class="section-header"><span class="num">2</span> List of Completed Features (Round 2 MVP)</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:25%;">Feature Module</th>
+      <th style="width:50%;">What is Built & Working</th>
+      <th style="width:25%;">User Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Verified Claims Ledger (SSOT)</strong></td>
+      <td>Extracts factual assertions, statistics, and guarantees. Validates against Single Source of Truth registry into 🟢 Verified, 🟡 Needs Citation, 🔴 Disputed.</td>
+      <td>Inline color-coded tags with direct 1-click "Resolve" shortcuts.</td>
+    </tr>
+    <tr>
+      <td><strong>PR Blast Radius & Crisis Simulator</strong></td>
+      <td>Simulates potential social media backlash (Twitter/X community note risk) and calculates projected regulatory penalty exposure (FTC §5).</td>
+      <td>Live crisis gauge & simulated public backlash thread.</td>
+    </tr>
+    <tr>
+      <td><strong>Maverick vs. Guardian Agent Debate</strong></td>
+      <td>Interactive multi-agent negotiation between Growth Marketing (high conversion) and Compliance Counsel (zero legal liability) with dynamic slider.</td>
+      <td>Slider dynamically updates copy across 3 levels of risk/virality.</td>
+    </tr>
+    <tr>
+      <td><strong>Multimodal Visual DNA Inspector</strong></td>
+      <td>Canvas overlay analyzing marketing banners for logo exclusion zone clear-space, color drift tolerance ($\Delta E$), and WCAG contrast.</td>
+      <td>Interactive modal showing real-time pass/fail metrics.</td>
+    </tr>
+    <tr>
+      <td><strong>Cryptographic Brand Passport</strong></td>
+      <td>Mints tamper-proof SHA-256 cryptographic verification tokens once content meets 100% compliance criteria.</td>
+      <td>Audit-proof certificate ready for CMS and social API dispatch.</td>
+    </tr>
+    <tr>
+      <td><strong>Role-Based Collaboration</strong></td>
+      <td>Instant toggle between Creator Drafting Mode and Reviewer Sign-Off Queue.</td>
+      <td>Header role switcher updating permissions in real time.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<h2 class="section-header"><span class="num">3</span> Technology & Implementation Details</h2>
+<div class="grid-2">
+  <div class="card card-highlight">
+    <div class="card-title">🖥️ Frontend Architecture</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li><strong>Responsive UI:</strong> Tailwind CSS with dark-mode executive styling.</li>
+      <li><strong>Interactive Workspaces:</strong> Real-time reactive state management for the compromise slider and modal visual inspector.</li>
+      <li><strong>Zero-Barrier Judge Experience:</strong> Includes pre-loaded demo buttons for instant evaluation.</li>
+    </ul>
+  </div>
+  <div class="card card-highlight">
+    <div class="card-title">⚙️ Backend & AI Engine</div>
+    <ul style="font-size:8pt; margin:0;">
+      <li><strong>Node.js Server (`server.js`):</strong> Asynchronous HTTP server with zero runtime external dependencies for instant portability.</li>
+      <li><strong>Gemini Multimodal Vision:</strong> Unified evaluation pipeline inspecting copy, logo boundaries, and color hex drift.</li>
+      <li><strong>Cryptographic Verification:</strong> SHA-256 digest hashing for immutable compliance audit trails.</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="section-header"><span class="num">4</span> Explanation of Changes Made to Original Plan</h2>
+<p>
+  During Round 1, our conceptual proposal focused primarily on static text highlighting and standard guideline lookup. In building the Round 2 MVP, we made three deliberate design enhancements to maximize real enterprise value:
+</p>
+<ul>
+  <li><strong>From Passive Warnings to Consequence Simulation:</strong> Traditional checkers output dry error codes. We built the <em>PR Blast Radius & Crisis Simulator</em> to visualize the concrete cost of failure (viral backlash and FTC regulatory exposure), giving non-technical executives an immediate business case.</li>
+  <li><strong>From Rigid LLM Rewrites to Multi-Agent Negotiation:</strong> Copywriters frequently reject AI-generated rewrites because they remove creative punch. We introduced the <em>Maverick vs. Guardian Debate</em> with a live compromise slider, allowing creators to balance legal safety with marketing conversion hooks.</li>
+  <li><strong>From Simple Status Toggles to Cryptographic Passports:</strong> Replaced standard "Approved" boolean flags with verifiable SHA-256 digital passports to prevent post-approval content tampering in enterprise publishing pipelines.</li>
+</ul>
+
+<h2 class="section-header"><span class="num">5</span> Three Major Improvements for Round 3 (The Mastermind Roadmap)</h2>
+<p>
+  As mandated by the competition rules, these three major additions represent meaningful architectural capabilities:
+</p>
+
+<div class="grid-3">
+  <div class="card card-success">
+    <div class="card-title"><span class="pill pill-green">IMPROVEMENT 1</span> Self-Healing Playbook</div>
+    <p style="font-size:7.5pt; margin:0;">
+      <strong>Auto-PR to Git & Figma:</strong> When the system detects repeated team blindspots across 50+ posts, it autonomously drafts GitHub Pull Requests to update <code>brand-guidelines.md</code> and pushes design token patches directly into Figma.
+    </p>
+  </div>
+  <div class="card card-warning">
+    <div class="card-title"><span class="pill pill-amber">IMPROVEMENT 2</span> 10-Persona Jury</div>
+    <p style="font-size:7.5pt; margin:0;">
+      <strong>Synthetic Audience Simulation:</strong> Expands the 2-agent debate into an autonomous panel of 10 synthetic AI personas (FTC auditor, skeptical enterprise buyer, competitor PR lead, tech critic) to predict virality, controversy, and sentiment before ad spend.
+    </p>
+  </div>
+  <div class="card card-highlight">
+    <div class="card-title"><span class="pill pill-red">IMPROVEMENT 3</span> ZK Brand Proofs</div>
+    <p style="font-size:7.5pt; margin:0;">
+      <strong>Zero-Knowledge Publishing Mesh:</strong> Issues cryptographic proofs allowing enterprises to verify compliance with external agencies and ad platforms without exposing confidential embargoed launch data, with direct automated publishing to CMS and social networks.
+    </p>
+  </div>
+</div>
+
+<div style="margin-top:20px; padding:10px; border:1px dashed #94a3b8; border-radius:6px; text-align:center; font-size:8pt; color:#64748b;">
+  <strong>BrandCircuit • Round 2 Build Submission</strong> • Developed for the Inkloom AI Hackathon (October 2026)
+</div>
+
+</body>
+</html>
