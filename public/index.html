@@ -64,7 +64,11 @@
       </div>
 
       <button onclick="loadSampleCampaign()" class="text-xs bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1.5 rounded-lg font-medium transition flex items-center">
-        <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-amber-400"></i> Load Demo Campaign (Violations)
+        <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-400"></i> Load Risky Campaign (Violations)
+      </button>
+
+      <button onclick="loadCleanCampaign()" class="text-xs bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1.5 rounded-lg font-medium transition flex items-center">
+        <i class="fa-solid fa-circle-check mr-1.5 text-emerald-400"></i> Load Clean Campaign
       </button>
 
       <div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
@@ -448,15 +452,35 @@
       document.getElementById('input-copy').value = riskyCopy;
       document.getElementById('metric-compliance').innerText = '64%';
       document.getElementById('metric-compliance').className = 'text-2xl font-bold text-rose-400';
+      document.getElementById('metric-claims').innerText = '14 / 16';
       document.getElementById('metric-blast').innerText = 'High (87%)';
       document.getElementById('metric-blast').className = 'text-2xl font-bold text-rose-400';
+      document.getElementById('metric-passport-status').innerText = 'Blocked (Violations)';
+      document.getElementById('metric-passport-status').className = 'text-sm font-semibold text-rose-400 mt-1';
       document.getElementById('passport-status-badge').innerText = 'Blocked: Severe Policy Violations';
       document.getElementById('passport-status-badge').className = 'text-rose-400 font-bold';
-      alert('Loaded Demo Campaign with intentional compliance violations!');
+      document.getElementById('claims-container').classList.remove('opacity-50');
+    }
+
+    function loadCleanCampaign() {
+      document.getElementById('input-copy').value = cleanCopy;
+      document.getElementById('metric-compliance').innerText = '98%';
+      document.getElementById('metric-compliance').className = 'text-2xl font-bold text-emerald-400';
+      document.getElementById('metric-claims').innerText = '16 / 16';
+      document.getElementById('metric-blast').innerText = 'Low (2%)';
+      document.getElementById('metric-blast').className = 'text-2xl font-bold text-emerald-400';
+      document.getElementById('metric-passport-status').innerText = 'Ready for Certification';
+      document.getElementById('metric-passport-status').className = 'text-sm font-semibold text-emerald-400 mt-1';
+      document.getElementById('passport-status-badge').innerText = 'Eligible for 1-Click Minting';
+      document.getElementById('passport-status-badge').className = 'text-emerald-400 font-bold';
     }
 
     function clearEditor() {
       document.getElementById('input-copy').value = '';
+      document.getElementById('metric-compliance').innerText = '---';
+      document.getElementById('metric-compliance').className = 'text-2xl font-bold text-slate-400';
+      document.getElementById('metric-blast').innerText = 'None';
+      document.getElementById('metric-blast').className = 'text-2xl font-bold text-slate-400';
     }
 
     function runPreFlightCheck() {
@@ -543,9 +567,9 @@
       }
     }
 
-    // Initialize with sample
+    // Initialize empty on load
     window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('input-copy').value = riskyCopy;
+      clearEditor();
     });
   </script>
 </body>
