@@ -1,63 +1,127 @@
 # BrandCircuit — Multimodal Pre-Flight CI/CD & Claims Ledger
 
-> **Inkloom AI Hackathon — Round 2 (The Build) Submission**  
-> An intelligent pre-publication brand governance platform that prevents brand inconsistency, eliminates unverified marketing claims, and bridges creative growth with compliance.
+<div align="center">
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render%20Online-10b981?style=for-the-badge&logo=render&logoColor=white)](https://brandcircuit.onrender.com/)
+[![Repository](https://img.shields.io/badge/GitHub-Repository-06b6d4?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SrinivasaKamathB/BrandCircuit)
+[![Round 2 MVP](https://img.shields.io/badge/Hackathon-Round%202%20The%20Build-8b5cf6?style=for-the-badge)](https://brandcircuit.onrender.com/)
+[![Security](https://img.shields.io/badge/Security-WebCrypto%20SHA--256-blue?style=for-the-badge&logo=shield)](https://brandcircuit.onrender.com/)
+
+**The Intelligent Pre-Publication Brand Governance Platform for Enterprise Content**  
+*Built for the Inkloom AI Hackathon (Round 2 — The Build)*
+
+[🌐 **Explore Live Application**](https://brandcircuit.onrender.com/) • [📄 **View Submission PDF**](./BrandCircuit_Round2_Submission.pdf) • [⚡ **Quick Start Guide**](#-quick-evaluator-walkthrough)
+
+</div>
 
 ---
 
-## 🚀 Live Demo & Quick Test Guide for Judges
+## 💡 The Problem: Content Entropy in the GenAI Era
 
-1. **Instant Run:**
-   ```bash
-   node server.js
-   ```
-   Open `http://localhost:3000` in your browser.
-2. **One-Click Judge Test:**
-   * Click **"Load Demo Campaign (Violations)"** at the top right.
-   * Watch the **PR Blast Radius & Crisis Simulator** generate a real-time simulated Twitter backlash thread and FTC regulatory penalty estimate.
-   * Review the **Verified Claims Ledger (SSOT)**: see atomic claims color-coded (🟢 Verified, 🟡 Needs Citation, 🔴 Disputed Claim).
-   * Click **"Resolve"** to enter the **Maverick vs. Guardian Debate** — drag the **Compromise Slider** between *Strict Compliance* and *Viral Growth Hook* to see live text adaptation.
-   * Click **"Inspect Visual DNA"** on the marketing banner to view the multimodal logo exclusion zone and hex drift inspector ($\Delta E$).
-   * Click **"Apply Fix"** $\rightarrow$ click **"Certify & Mint Cryptographic Passport"** to generate a verifiable SHA-256 stamp for production publishing.
+Growing organizations publish content at unprecedented velocity across employees, agencies, and generative AI tools (ChatGPT, Midjourney, Jasper). This decentralized publishing leads to three structural enterprise failures:
+
+1. **Unsubstantiated Promotional Claims:** GenAI frequently hallucinates statistics (e.g., *"10x faster"*, *"100% money-back guarantee with zero risk"*) that create legal liabilities and FTC regulatory penalties.
+2. **Visual & Tone Drift:** Off-brand hex colors, crowded logos, and aggressive sales messaging damage credibility before anyone notices.
+3. **The Creative vs. Compliance Deadlock:** Copywriters hate rigid compliance blockers that destroy marketing punch, while brand managers spend 15+ hours weekly proofreading routine social posts.
 
 ---
 
-## 📦 List of Completed Features (Round 2 MVP)
+## ⚡ The Solution: BrandCircuit
 
-| Module | Feature | Implementation Details |
+**BrandCircuit** operates as a continuous compliance **Pre-Flight CI/CD Pipeline** for digital content. Instead of acting as an obstructive gatekeeper, it explains violations, validates factual assertions against a Single Source of Truth (SSOT), and uses multi-agent negotiation to synthesize intent-preserving creative rewrites.
+
+```
+[ Creator Draft / Banner Upload ]
+               │
+               ▼
+[ Multimodal Pre-Flight Engine ]
+  ├── 1. Verified Claims Ledger (Facts & Statistics Check)
+  ├── 2. PR Blast Radius & Crisis Simulator (FTC Risk & Viral Backlash)
+  ├── 3. Multimodal Visual DNA Inspector (Logo Clear-Space, ΔE Hex Drift, WCAG)
+  └── 4. Maverick vs. Guardian Agent Debate (Growth vs. Compliance Compromise)
+               │
+               ▼
+[ WebCrypto Cryptographic Brand Passport (SHA-256 Digest) ]
+               │
+               ▼
+[ Production Publishing / Reviewer Sign-Off ]
+```
+
+---
+
+## 📦 Core Completed Features (Round 2 MVP)
+
+| Feature Pillar | Technical Implementation | Enterprise Impact |
 | :--- | :--- | :--- |
-| **Pillar 1: Claims Ledger** | **Verified Claims Ledger (SSOT)** | Extracts factual statements, guarantees, and percentages. Categorizes into Verified, Needs Citation, and Prohibited. |
-| **Pillar 2: Crisis AI** | **PR Blast Radius & Crisis Simulator** | Generates simulated social media backlash, community notes, and FTC regulatory risk exposure metrics. |
-| **Pillar 3: Agent Debate** | **Maverick vs. Guardian Debate** | Multi-agent negotiation between a Growth Marketer and Compliance Counsel with an interactive Compromise Slider. |
-| **Pillar 4: Multimodal Vision** | **Visual DNA Inspector** | Evaluates logo clear-space exclusion boundaries, hex color tolerance ($\Delta E$), and WCAG contrast. |
-| **Pillar 5: Certification** | **Cryptographic Brand Passport** | Issues tamper-proof SHA-256 cryptographic verification stamps ensuring unapproved edits cannot publish. |
-| **Workflow** | **Role-Based Workspaces** | Creator Drafting & Pre-Flight Mode $\leftrightarrow$ Reviewer Sign-Off & Audit Queue. |
+| **1. Verified Claims Ledger (SSOT)** | Deconstructs text into discrete atomic assertions. Categorizes claims into 🟢 **Verified SSOT**, 🟡 **Needs Citation**, or 🔴 **Disputed Claim**. | Prevents false advertising and ensures single-source fact alignment. |
+| **2. PR Blast Radius & Crisis Simulator** | Generates simulated viral Twitter/X backlash threads with community notes and estimates financial exposure under FTC §5 ($45,000). | Visualizes real-world business risks before hitting publish. |
+| **3. Maverick vs. Guardian Debate** | Multi-agent negotiation between **The Maverick** (Growth Marketer) and **The Guardian** (Compliance Counsel) with 3 quick-click presets (*Strict Legal*, *Balanced*, *High Growth*). | Balances legal safety with high-converting marketing hooks. |
+| **4. Multimodal Visual DNA Inspector** | Client-side HTML5 Canvas and FileReader analyzing image banners for **Logo Exclusion Zone**, **Color Drift ($\Delta E = 4.2$)**, and **WCAG AAA contrast (7.2:1)**. | Catches visual identity and accessibility violations in graphics. |
+| **5. Cryptographic Brand Passport** | Mints real browser WebCrypto API (`crypto.subtle.digest`) **SHA-256 mathematical digests** once content achieves 100% compliance. | Tamper-proof certificate for automated CMS and social schedulers. |
+| **6. Role-Based Workspaces** | Live header toggle between **Creator Drafting Mode** and **Reviewer Compliance Queue**. | Streamlines agency-to-enterprise review handoffs. |
 
 ---
 
-## 🛠️ Technology & Implementation Details
+## 🎯 Quick Evaluator Walkthrough (Test in 60 Seconds)
 
-- **Frontend Interface:** Responsive Single Page Application (Tailwind CSS, Lucide / FontAwesome, HTML5 Canvas).
-- **Backend Service:** Node.js v24 asynchronous server with zero external runtime dependencies (`server.js`).
-- **AI Integration Architecture:** Multi-agent schema utilizing Google Gemini multimodal vision and structured JSON outputs.
-- **Verification & Security:** SHA-256 hash digest verification for approved creative assets.
+You can test the entire workflow live at **[https://brandcircuit.onrender.com/](https://brandcircuit.onrender.com/)** or locally:
 
----
-
-## 🔄 Explanation of Changes Made to Original Plan
-
-During Round 1, our plan proposed static text highlighting and standard guideline citations. In Round 2, we elevated the product with 3 key refinements:
-1. **From Static Warnings to "PR Blast Radius":** Rather than simple warning labels, we built a crisis simulator showing the *consequences* of publishing false claims (social backlash, regulatory fines).
-2. **From Automated Overrides to "Multi-Agent Negotiation":** Creators hate rigid AI rules; we introduced the *Maverick vs. Guardian* debate with a compromise slider so creators keep their conversion punch.
-3. **From Passive Approval to "Cryptographic Brand Passport":** Added tamper-proof verification stamps to integrate directly with downstream CMS/social schedulers.
+1. **Load Risky Demo:** Click **`Load Risky Campaign (Violations)`** at the top right.
+   * *Observe:* Compliance drops to **64% (Red)**; PR Crisis spikes to **87%** with a simulated Twitter backlash thread and FTC penalty estimate.
+2. **Review Claims Ledger:** Scroll down to the **Verified Claims Ledger** to see atomic flags. Click **`Resolve`** next to the red claim.
+3. **Agent Negotiation:** In the **Maverick vs. Guardian Debate**, click **`⚖️ Balanced`** or **`🚀 High Growth`**, then click **`Apply Fix`**.
+   * *Observe:* Draft updates automatically; **Compliance jumps to 96% (Green)**; PR Crisis cools down to Low risk.
+4. **Inspect Banner Graphics:** Click **`Upload Banner`** (or click **`Get Test Image`**), then click **`Inspect DNA`** to see the multimodal logo boundary and color drift overlay.
+5. **Mint Brand Passport:** Click **`Certify & Mint Cryptographic Passport`** to generate a real mathematical SHA-256 seal for publishing.
 
 ---
 
-## 🔮 Three Major Improvements for Round 3
+## 🛠️ Technology Stack & Architecture
 
-1. **Autonomous Self-Healing Playbook (Auto-PR to Git & Figma Tokens):**
-   When the AI detects repeated blindspots or guideline ambiguity across 50+ posts, it automatically opens GitHub Pull Requests to update `brand-guidelines.md` and syncs new design tokens to Figma.
+- **Frontend Application:** Single Page Application styled with Tailwind CSS, reactive state controls, and HTML5 Canvas inspection.
+- **Backend Service:** Asynchronous Node.js v24 HTTP microserver (`server.js`) with zero external runtime dependencies for maximum portability.
+- **AI & Reasoning Pipeline:** Multi-agent structured schema designed for Google Gemini multimodal vision and reasoning.
+- **Cryptographic Security:** Browser WebCrypto API (`crypto.subtle.digest`) generating authentic SHA-256 content hashes.
+- **Enterprise Hardening:** Production OWASP security headers (CSP, `nosniff`, `X-Frame-Options: DENY`, strict referrer policy, zero data retention).
+
+---
+
+## 🔄 Changes Made to Original Plan (Round 1 → Round 2)
+
+During Round 1, our plan proposed static text highlighting and standard guideline lookup. In Round 2, we elevated the product with three deliberate design changes:
+
+1. **From Passive Warnings to Consequence Simulation:** Replaced boring error labels with the *PR Blast Radius Simulator* to visualize the concrete cost of failure (viral backlash and FTC regulatory fines).
+2. **From Rigid Overrides to Multi-Agent Negotiation:** Replaced robotic text replacements with the *Maverick vs. Guardian* debate and compromise engine, preserving creative conversion punch.
+3. **From Status Flags to Cryptographic Passports:** Upgraded simple boolean approvals to mathematically verifiable SHA-256 digital passports for downstream API publishing pipelines.
+
+---
+
+## 🔮 Three Major Improvements for Round 3 (Mastermind Roadmap)
+
+As mandated by competition rules, these three major additions represent meaningful architectural capabilities:
+
+1. **Autonomous Self-Healing Playbook (Auto-PR to Git & Figma):**
+   When the AI detects repeated team blindspots across 50+ posts, it autonomously creates GitHub Pull Requests updating `brand-guidelines.md` and syncs design tokens into Figma so the company handbook updates itself.
 2. **Synthetic Audience & Regulatory Jury (10-Persona Simulation):**
-   Expands the 2-agent debate into an autonomous panel of 10 synthetic AI personas (FTC auditor, skeptical enterprise buyer, competitor PR lead, tech critic) to predict engagement, controversy, and virality with statistical confidence bounds.
+   Expands the 2-agent debate into an autonomous panel of 10 synthetic AI personas (FTC auditor, skeptical enterprise buyer, competitor PR lead, tech critic) to predict virality, controversy, and sentiment with statistical confidence bounds before ad spend.
 3. **Zero-Knowledge Brand Verification (ZK-Proof) & Omnichannel Publishing Mesh:**
-   Enables enterprises to cryptographically prove compliance to external agencies and ad platforms *without* revealing confidential embargoed launch data, with 1-click automated publishing to LinkedIn, X, Meta, and Webflow.
+   Enables enterprises to cryptographically prove compliance to external agencies and ad platforms without exposing confidential embargoed launch data, with direct 1-click publishing to CMS, LinkedIn, X, and Meta ad networks.
+
+---
+
+## 💻 Local Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/SrinivasaKamathB/BrandCircuit.git
+cd BrandCircuit
+
+# Start the application
+node server.js
+```
+Open **`http://localhost:3000`** in any modern web browser.
+
+---
+
+## 📜 License
+Developed under the **MIT License** for the **Inkloom AI Hackathon (October 2026)**.
