@@ -220,9 +220,9 @@
   .pill-amber { background: #fef9c3; color: #854d0e; }
   .pill-red { background: #fee2e2; color: #b91c1c; }
 
-  .page-break {
-    page-break-after: always;
-    break-after: page;
+  .card, tr, .workflow-box {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 </style>
 </head>
@@ -369,8 +369,7 @@
   </div>
 </div>
 
-<!-- ==================== PAGE 2 ==================== -->
-<div class="page-break"></div>
+
 
 <h2 class="section-header"><span class="num">4</span> Explanation of Changes Made to Original Plan</h2>
 <p>
