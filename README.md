@@ -10,7 +10,7 @@
 **The Intelligent Pre-Publication Brand Governance Platform for Enterprise Content**  
 *Built for the Inkloom AI Hackathon (Round 2 — The Build)*
 
-[🌐 **Explore Live Application**](https://brandcircuit.onrender.com/) • [📄 **View Submission PDF**](./BrandCircuit_Round2_Submission.pdf) • [⚡ **Quick Start Guide**](#-quick-evaluator-walkthrough)
+[🌐 **Explore Live Application**](https://brandcircuit.onrender.com/) • [📄 **View Submission PDF**](https://brandcircuit.onrender.com/BrandCircuit_Round2_Submission.pdf) • [⚡ **Quick Start Guide**](#-quick-evaluator-walkthrough)
 
 </div>
 

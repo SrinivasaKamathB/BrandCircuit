@@ -111,9 +111,10 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Serve PDF from root if requested
-  if (url === '/BrandCircuit_Hackathon_Plan.pdf') {
-    const pdfPath = path.join(__dirname, 'BrandCircuit_Hackathon_Plan.pdf');
+  // Serve PDFs from root if requested
+  if (url === '/BrandCircuit_Round2_Submission.pdf' || url === '/BrandCircuit_Hackathon_Plan.pdf') {
+    const requestedPdf = url.substring(1);
+    const pdfPath = path.join(__dirname, requestedPdf);
     if (fs.existsSync(pdfPath)) {
       res.writeHead(200, { 'Content-Type': 'application/pdf' });
       fs.createReadStream(pdfPath).pipe(res);
