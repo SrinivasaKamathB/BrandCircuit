@@ -80,7 +80,7 @@ You can test the entire workflow live at **[https://brandcircuit.onrender.com/](
 
 - **Frontend Application:** Single Page Application styled with Tailwind CSS, reactive state controls, and HTML5 Canvas inspection.
 - **Backend Service:** Asynchronous Node.js v24 HTTP microserver (`server.js`) with zero external runtime dependencies for maximum portability.
-- **AI & Reasoning Pipeline:** Multi-agent structured schema designed for Google Gemini multimodal vision and reasoning.
+- **AI & Reasoning Pipeline:** Multi-agent structured schema utilizing multimodal computer vision and deterministic JSON schemas.
 - **Cryptographic Security:** Browser WebCrypto API (`crypto.subtle.digest`) generating authentic SHA-256 content hashes.
 - **Enterprise Hardening:** Production OWASP security headers (CSP, `nosniff`, `X-Frame-Options: DENY`, strict referrer policy, zero data retention).
 
